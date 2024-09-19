@@ -1,0 +1,108 @@
+cmake_minimum_required(VERSION 3.29)
+project(introAlgoritmos)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(main main.cpp)
+add_executable(hojaejercicios2
+        HojaEjercicios2/hojaejercicios2.cpp
+        HojaEjercicios2/hojaejercicios2.h
+        HojaEjercicios2/problema2.cpp
+        HojaEjercicios2/problema2.h
+        HojaEjercicios2/problema3.cpp
+        HojaEjercicios2/problema3.h
+        HojaEjercicios2/problema4.cpp
+        HojaEjercicios2/problema4.h
+        HojaEjercicios2/problema7.cpp
+        HojaEjercicios2/problema7.h
+        HojaEjercicios2/problema9.cpp
+        HojaEjercicios2/problema9.h
+        HojaEjercicios2/problema11.cpp
+        HojaEjercicios2/problema11.h
+        HojaEjercicios2/problema12.cpp
+        HojaEjercicios2/problema12.h
+        HojaEjercicios2/problema5.cpp
+        HojaEjercicios2/problema5.h
+        HojaEjercicios2/problema1.cpp
+        HojaEjercicios2/problema1.h
+        HojaEjercicios2/problema6.cpp
+        HojaEjercicios2/problema6.h
+        HojaEjercicios2/problema8.cpp
+        HojaEjercicios2/problema8.h
+        HojaEjercicios2/problema10.cpp
+        HojaEjercicios2/problema10.h
+        HojaEjercicios2/problema13.cpp
+        HojaEjercicios2/problema13.h
+        HojaEjercicios2/problema14.cpp
+        HojaEjercicios2/problema14.h
+        HojaEjercicios2/problema15.cpp
+        HojaEjercicios2/problema15.h
+)
+add_executable(hojaejercicios3a
+        HojaEjercicios3A/hojaejercicios3.cpp
+        HojaEjercicios3A/hojaejercicios3.h
+        HojaEjercicios3A/problema1.cpp
+        HojaEjercicios3A/problema1.h
+        HojaEjercicios3A/problema2.cpp
+        HojaEjercicios3A/problema2.h
+        HojaEjercicios3A/problema3.cpp
+        HojaEjercicios3A/problema3.h
+        HojaEjercicios3A/problema4.cpp
+        HojaEjercicios3A/problema4.h
+        HojaEjercicios3A/problema5.cpp
+        HojaEjercicios3A/problema5.h
+        HojaEjercicios3A/problema6.cpp
+        HojaEjercicios3A/problema6.h
+        HojaEjercicios3A/problema7.cpp
+        HojaEjercicios3A/problema7.h
+        HojaEjercicios3A/problema8.cpp
+        HojaEjercicios3A/problema8.h
+        HojaEjercicios3A/problema9.cpp
+        HojaEjercicios3A/problema9.h
+        HojaEjercicios3A/problema11.cpp
+        HojaEjercicios3A/problema11.h
+        HojaEjercicios3A/problema12.cpp
+        HojaEjercicios3A/problema12.h
+        HojaEjercicios3A/problema13.cpp
+        HojaEjercicios3A/problema13.h
+)
+add_executable(hojasejercicios3b
+        HojaEjercicios3B/hojaejercicios3b.cpp
+        HojaEjercicios3B/hojaejercicios3b.h
+        HojaEjercicios3B/problema1.cpp
+        HojaEjercicios3B/problema1.h
+        HojaEjercicios3B/problema2.cpp
+        HojaEjercicios3B/problema2.h
+        HojaEjercicios3B/problema3.cpp
+        HojaEjercicios3B/problema3.h
+        HojaEjercicios3B/problema8.cpp
+        HojaEjercicios3B/problema8.h
+        HojaEjercicios3B/problema12.cpp
+        HojaEjercicios3B/problema12.h
+        HojaEjercicios3B/problema4.cpp
+        HojaEjercicios3B/problema4.h
+        HojaEjercicios3B/problema5.cpp
+        HojaEjercicios3B/problema5.h
+        HojaEjercicios3B/problema6.cpp
+        HojaEjercicios3B/problema6.h
+        HojaEjercicios3B/problema7.cpp
+        HojaEjercicios3B/problema7.h
+)
+add_executable(hojaejercicios4 HojaEjercicios4/problema2.cpp HojaEjercicios4/problema2.h
+        HojaEjercicios4/hojaejercicios4.cpp
+        HojaEjercicios4/hojaejercicios4.h
+        HojaEjercicios4/problema3.cpp
+        HojaEjercicios4/problema3.h)
+add_executable(hojaejercicios5a HojaEjercicios5A/hojaejercicios5a.cpp HojaEjercicios5A/hojaejercicios5a.h
+        HojaEjercicios5A/problema1.cpp
+        HojaEjercicios5A/problema1.h)
+add_executable(hojaejercicios5c HojaEjercicios5C/hojaejercicios5c.cpp HojaEjercicios5C/hojaejercicios5c.h
+        HojaEjercicios5C/problema1.cpp
+        HojaEjercicios5C/problema1.h
+        HojaEjercicios5C/problema2.cpp
+        HojaEjercicios5C/problema2.h)
+add_executable(hojaejercicios6a HojaEjercicios6A/hojaejercicios6a.cpp HojaEjercicios6A/hojaejercicios6a.h
+        HojaEjercicios6A/problema1.cpp
+        HojaEjercicios6A/problema1.h
+        HojaEjercicios6A/problema2.cpp
+        HojaEjercicios6A/problema2.h)
