@@ -17,4 +17,6 @@ void problema12()
 
     primer_resultante = codigo_empleado.substr(0, 4);
     segundo_resultante = codigo_empleado.substr(4, 4);
+
+    //Todo: resolver problema 12
 }

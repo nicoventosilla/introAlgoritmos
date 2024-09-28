@@ -87,22 +87,46 @@ add_executable(hojasejercicios3b
         HojaEjercicios3B/problema6.h
         HojaEjercicios3B/problema7.cpp
         HojaEjercicios3B/problema7.h
+        HojaEjercicios3B/problema9.cpp
+        HojaEjercicios3B/problema9.h
 )
 add_executable(hojaejercicios4 HojaEjercicios4/problema2.cpp HojaEjercicios4/problema2.h
         HojaEjercicios4/hojaejercicios4.cpp
         HojaEjercicios4/hojaejercicios4.h
         HojaEjercicios4/problema3.cpp
-        HojaEjercicios4/problema3.h)
+        HojaEjercicios4/problema3.h
+        HojaEjercicios4/problema4.cpp
+        HojaEjercicios4/problema4.h
+        HojaEjercicios4/problema5.cpp
+        HojaEjercicios4/problema5.h
+        HojaEjercicios4/problema7.cpp
+        HojaEjercicios4/problema7.h
+        HojaEjercicios4/problema8.cpp
+        HojaEjercicios4/problema8.h
+        HojaEjercicios4/problema12.cpp
+        HojaEjercicios4/problema12.h
+        HojaEjercicios4/problema13.cpp
+        HojaEjercicios4/problema13.h
+        HojaEjercicios4/problema14.cpp
+        HojaEjercicios4/problema14.h
+        HojaEjercicios4/problema15.cpp
+        HojaEjercicios4/problema15.h
+        HojaEjercicios4/problema16.cpp
+        HojaEjercicios4/problema16.h)
 add_executable(hojaejercicios5a HojaEjercicios5A/hojaejercicios5a.cpp HojaEjercicios5A/hojaejercicios5a.h
         HojaEjercicios5A/problema1.cpp
-        HojaEjercicios5A/problema1.h)
+        HojaEjercicios5A/problema1.h
+        HojaEjercicios5A/problema2.cpp
+        HojaEjercicios5A/problema2.h)
 add_executable(hojaejercicios5c HojaEjercicios5C/hojaejercicios5c.cpp HojaEjercicios5C/hojaejercicios5c.h
         HojaEjercicios5C/problema1.cpp
         HojaEjercicios5C/problema1.h
-        HojaEjercicios5C/problema2.cpp
-        HojaEjercicios5C/problema2.h)
+)
 add_executable(hojaejercicios6a HojaEjercicios6A/hojaejercicios6a.cpp HojaEjercicios6A/hojaejercicios6a.h
         HojaEjercicios6A/problema1.cpp
         HojaEjercicios6A/problema1.h
         HojaEjercicios6A/problema2.cpp
         HojaEjercicios6A/problema2.h)
+add_executable(hojaejercicios6b HojaEjercicios6B/hojaejercicios6b.cpp HojaEjercicios6B/hojaejercicios6b.h
+        HojaEjercicios6B/problema1.cpp
+        HojaEjercicios6B/problema1.h)
