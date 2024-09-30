@@ -1,8 +1,8 @@
 //
-// Created by c0d3r on 28/09/2024.
+// Created by c0d3r on 30/09/2024.
 //
 
-#include "hojaejercicios7a.h"
+#include "hojaejercicios7b.h"
 #include "problema1.h"
 // #include "problema2.h"
 // #include "problema3.h"
@@ -51,42 +51,42 @@ int main()
     case 1:
         problema1();
         break;
-    // case 2:
-    //     problema2();
-    //     break;
-    // case 3:
-    //     problema3();
-    //     break;
-    // case 4:
-    //     problema4();
-    //     break;
-    // case 5:
-    //     problema5();
-    //     break;
-    // case 6:
-    //     problema6();
-    //     break;
-    // case 7:
-    //     problema7();
-    //     break;
-    // case 8:
-    //     problema8();
-    //     break;
-    // case 9:
-    //     problema9();
-    //     break;
-    // case 10:
-    //     problema10();
-    //     break;
-    // case 11:
-    //     problema11();
-    //     break;
-    // case 12:
-    //     problema12();
-    //     break;
-    // case 13:
-    //     problema13();
-    //     break;
+        // case 2:
+        //     problema2();
+        //     break;
+        // case 3:
+        //     problema3();
+        //     break;
+        // case 4:
+        //     problema4();
+        //     break;
+        // case 5:
+        //     problema5();
+        //     break;
+        // case 6:
+        //     problema6();
+        //     break;
+        // case 7:
+        //     problema7();
+        //     break;
+        // case 8:
+        //     problema8();
+        //     break;
+        // case 9:
+        //     problema9();
+        //     break;
+        // case 10:
+        //     problema10();
+        //     break;
+        // case 11:
+        //     problema11();
+        //     break;
+        // case 12:
+        //     problema12();
+        //     break;
+        // case 13:
+        //     problema13();
+        //     break;
     default:
         cout << "Opcion no valida" << endl;
         break;
