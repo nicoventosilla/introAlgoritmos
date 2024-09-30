@@ -66,7 +66,7 @@ add_executable(hojaejercicios3a
         HojaEjercicios3A/problema13.cpp
         HojaEjercicios3A/problema13.h
 )
-add_executable(hojasejercicios3b
+add_executable(hojaejercicios3b
         HojaEjercicios3B/hojaejercicios3b.cpp
         HojaEjercicios3B/hojaejercicios3b.h
         HojaEjercicios3B/problema1.cpp
@@ -89,6 +89,12 @@ add_executable(hojasejercicios3b
         HojaEjercicios3B/problema7.h
         HojaEjercicios3B/problema9.cpp
         HojaEjercicios3B/problema9.h
+        HojaEjercicios3B/problema10.cpp
+        HojaEjercicios3B/problema10.h
+        HojaEjercicios3B/problema11.cpp
+        HojaEjercicios3B/problema11.h
+        HojaEjercicios3B/problema13.cpp
+        HojaEjercicios3B/problema13.h
 )
 add_executable(hojaejercicios4 HojaEjercicios4/problema2.cpp HojaEjercicios4/problema2.h
         HojaEjercicios4/hojaejercicios4.cpp
@@ -130,3 +136,4 @@ add_executable(hojaejercicios6a HojaEjercicios6A/hojaejercicios6a.cpp HojaEjerci
 add_executable(hojaejercicios6b HojaEjercicios6B/hojaejercicios6b.cpp HojaEjercicios6B/hojaejercicios6b.h
         HojaEjercicios6B/problema1.cpp
         HojaEjercicios6B/problema1.h)
+add_executable(hojaejercicios7a HojaEjercicios7A/hojaejercicios7a.cpp HojaEjercicios7A/hojaejercicios7a.h)

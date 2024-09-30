@@ -18,7 +18,7 @@ void problema2()
     R = numero.substr(4, 4);
     C = numero.substr(8, 4);
 
-    int num1 = stoi(P);
+    int num1 = stoi(P); // stoi convierte un string a un entero
     int num2 = stoi(R);
     int num3 = stoi(C);
 

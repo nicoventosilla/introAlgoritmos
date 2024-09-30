@@ -31,7 +31,7 @@ void problema13()
     int m = stoi(MM);
     int s = stoi(SS);
 
-    char letra_nombre = static_cast<char>(n);
+    char letra_nombre = static_cast<char>(n); // Convertir un entero a un caracter
     char letra_apellido_paterno = static_cast<char>(p);
     char letra_apellido_materno = static_cast<char>(a);
 

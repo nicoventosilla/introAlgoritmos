@@ -7,18 +7,75 @@
 #include <string>
 using namespace std;
 
-// Todo: Implementar las funciones encriptarBase4, encriptarBase6 y encriptarBase2
-string encriptarBase2(int latitud)
+string encriptarBase2(int numero)
 {
+    string resultado;
+
+    while (numero > 0)
+    {
+        resultado = to_string(numero % 2) + resultado;
+        numero /= 2;
+    }
+
+    return resultado;
+}
+
+string encriptarBase4(int numero)
+{
+    string resultado;
+
+    while (numero > 0)
+    {
+        resultado = to_string(numero % 4) + resultado;
+        numero /= 4;
+    }
+
+    return resultado;
+}
+
+string encriptarBase6(int numero)
+{
+    string resultado;
+
+    while (numero > 0)
+    {
+        resultado = to_string(numero % 6) + resultado;
+        numero /= 6;
+    }
+
+    return resultado;
+}
+
+string encriptarBase8(int numero)
+{
+    string resultado;
+
+    while (numero > 0)
+    {
+        resultado = to_string(numero % 8) + resultado;
+        numero /= 8;
+    }
+
+    return resultado;
+}
+
+string encriptarBase9(int numero)
+{
+    string resultado;
+
+    while (numero > 0)
+    {
+        resultado = to_string(numero % 9) + resultado;
+        numero /= 9;
+    }
+
+    return resultado;
 }
 
 void problema7()
 {
     int latitud, longitud, altitud, hora, minuto, segundo;
     char metal_precioso;
-    string latitud_encriptada, longitud_encriptada, altitud_encriptada, metal_precioso_encriptado, hora_encriptada,
-           minuto_encriptado,
-           segundo_encriptado;
 
     cout << "Latitud: ";
     cin >> latitud;
@@ -41,8 +98,20 @@ void problema7()
     cout << "Segundo: ";
     cin >> segundo;
 
-    // latitud_encriptada = encriptarBase2(latitud);
-    // longitud_encriptada = encriptarBase4(longitud);
-    // altitud_encriptada = encriptarBase6(altitud);
-    // metal_precioso_encriptado = encriptarBase2(metal_precioso);
+    string latitud_encriptada = encriptarBase2(latitud);
+    string longitud_encriptada = encriptarBase4(longitud);
+    string altitud_encriptada = encriptarBase6(altitud);
+    string metal_precioso_encriptado = encriptarBase2(static_cast<int>(metal_precioso));
+    string hora_encriptada = encriptarBase2(hora);
+    string minuto_encriptado = encriptarBase8(minuto);
+    string segundo_encriptado = encriptarBase9(segundo);
+
+    cout << "Datos encriptados: " << endl;
+    cout << latitud_encriptada << " ";
+    cout << longitud_encriptada << " ";
+    cout << altitud_encriptada << " ";
+    cout << metal_precioso_encriptado << " ";
+    cout << hora_encriptada << " ";
+    cout << minuto_encriptado << " ";
+    cout << segundo_encriptado << endl;
 }

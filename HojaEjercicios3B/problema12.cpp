@@ -4,19 +4,60 @@
 
 #include "problema12.h"
 #include <iostream>
+#include <string>
+#include <cctype> // islower, isupper
+using namespace std;
+
+char encriptarPrimerResultante(int primer_resultante)
+{
+    if (primer_resultante >= 1000 && primer_resultante <= 3000) return 'H';
+    else if (primer_resultante >= 4000 && primer_resultante <= 6000) return 'X';
+    else if (primer_resultante >= 7000 && primer_resultante <= 9000) return 'L';
+    else return '#';
+}
+
+char encriptarSegundoResultante(int segundo_resultante)
+{
+    if (segundo_resultante >= 1000 && segundo_resultante <= 3000) return 'T';
+    else if (segundo_resultante >= 4000 && segundo_resultante <= 6000) return 'W';
+    else if (segundo_resultante >= 7000 && segundo_resultante <= 9000) return 'A';
+    else return '&';
+}
+
+int encriptarArea(char area)
+{
+    // Verificar si es vocal mayuscula
+    if (area == 'A' || area == 'E' || area == 'I' || area == 'O' || area == 'U') return 1001;
+    // Verificar si es vocal minuscula
+    else if (area == 'a' || area == 'e' || area == 'i' || area == 'o' || area == 'u') return 9009;
+    // Verificar si es consonante minuscula
+    else if (islower(area)) return 6009;
+    // Verificar si es consonante mayuscula
+    else if (isupper(area)) return 7007;
+}
 
 void problema12()
 {
-    std::string codigo_empleado, area, primer_resultante, segundo_resultante;
+    string codigo_empleado;
+    char area;
 
-    std::cout << "Ingrese numero de 8 digitos: ";
-    std::cin >> codigo_empleado;
+    cout << "Ingrese numero de 8 digitos: ";
+    cin >> codigo_empleado;
 
-    std::cout << "Ingrese area donde labora: ";
-    std::cin >> area;
+    cout << "Ingrese area donde labora: ";
+    cin >> area;
 
-    primer_resultante = codigo_empleado.substr(0, 4);
-    segundo_resultante = codigo_empleado.substr(4, 4);
+    string primer_resultante = codigo_empleado.substr(0, 4);
+    string segundo_resultante = codigo_empleado.substr(4, 4);
 
-    //Todo: resolver problema 12
+    int primer_resultante_int = stoi(primer_resultante); // stoi: string to int
+    int segundo_resultante_int = stoi(segundo_resultante);
+
+    char primer_resultante_encriptado = encriptarPrimerResultante(primer_resultante_int);
+    char segundo_resultante_encriptado = encriptarSegundoResultante(segundo_resultante_int);
+    int area_encriptada = encriptarArea(area);
+
+    cout << "Codigo encriptado: " << primer_resultante_encriptado;
+    cout << segundo_resultante_encriptado;
+    cout << area_encriptada << endl;
 }

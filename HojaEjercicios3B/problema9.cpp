@@ -6,6 +6,30 @@
 #include <iostream>
 using namespace std;
 
+double calcularPrecio(char modelo, char color, char juego)
+{
+    double precio = 0.0;
+
+    if (modelo == 'T' || modelo == 't')
+    {
+        if (color == 'B' || color == 'b') precio = 6.0;
+        else if (color == 'A' || color == 'a') precio = 7.0;
+        else if (color == 'N' || color == 'n') precio = 8.0;
+    }
+    else if (modelo == 'K' || modelo == 'k')
+    {
+        if (color == 'B' || color == 'b') precio = 10.0;
+        else if (color == 'A' || color == 'a') precio = 12.0;
+        else if (color == 'N' || color == 'n') precio = 15.0;
+    }
+
+    if (juego == 'G' || juego == 'g') precio += (precio * 0.25);
+    else if (juego == 'C' || juego == 'c') precio += (precio * 0.0);
+    else if (juego == 'A' || juego == 'a') precio += (precio * 0.10);
+
+    return precio;
+}
+
 void problema9()
 {
     char modelo, color, juego;
@@ -17,8 +41,10 @@ void problema9()
     cout << "Ingrese color (B: blanco, A: azul, N: Negro): ";
     cin >> color;
 
-    cout << "Juego (C: curitas, G: gel de mano, A: alcohol: ";
+    cout << "Juego (G: gel de mano, C: curitas, A: alcohol: ";
     cin >> juego;
 
-    //Todo: Resolverlo sin if ni switch
+    precio = calcularPrecio(modelo, color, juego);
+
+    cout << "Precio del combo: $" << precio;
 }

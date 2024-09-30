@@ -10,13 +10,13 @@
 #include "problema4.h"
 #include "problema5.h"
 #include "problema6.h"
-#include "problema8.h"
 #include "problema7.h"
-// #include "problema9.h"
-// #include "problema10.h"
-// #include "problema11.h"
-// #include "problema12.h"
-// #include "problema13.h"
+#include "problema8.h"
+#include "problema9.h"
+#include "problema10.h"
+#include "problema11.h"
+#include "problema12.h"
+#include "problema13.h"
 using namespace std;
 
 void mostrarMenu()
@@ -29,11 +29,11 @@ void mostrarMenu()
     cout << "6. Problema 6" << endl;
     cout << "7. Problema 7" << endl;
     cout << "8. Problema 8" << endl;
-    // cout << "9. Problema 9" << endl;
-    // cout << "10. Problema 10" << endl;
-    // cout << "11. Problema 11" << endl;
-    // cout << "12. Problema 12" << endl;
-    // cout << "13. Problema 13" << endl;
+    cout << "9. Problema 9" << endl;
+    cout << "10. Problema 10" << endl;
+    cout << "11. Problema 11" << endl;
+    cout << "12. Problema 12" << endl;
+    cout << "13. Problema 13" << endl;
     cout << "0. Salir" << endl;
 }
 
@@ -72,21 +72,21 @@ int main()
     case 8:
         problema8();
         break;
-    // case 9:
-    //     problema9();
-    //     break;
-    // case 10:
-    //     problema10();
-    //     break;
-    // case 11:
-    //     problema11();
-    //     break;
-    // case 12:
-    //     problema12();
-    //     break;
-    // case 13:
-    //     problema13();
-    //     break;
+    case 9:
+        problema9();
+        break;
+    case 10:
+        problema10();
+        break;
+    case 11:
+        problema11();
+        break;
+    case 12:
+        problema12();
+        break;
+    case 13:
+        problema13();
+        break;
     default:
         cout << "Opcion no valida" << endl;
         break;
