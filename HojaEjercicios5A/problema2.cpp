@@ -1,14 +1,24 @@
 #include "problema2.h"
 #include <iostream>
 #include <cmath>
-#include <string>
 using namespace std;
 
+long long factorial2(int n)
+{
+    long long factorial = 1;
 
+    for (int i = 1; i <= n; i++)
+    {
+        factorial *= i;
+    }
+
+    return factorial;
+}
 
 void problema2()
 {
     int n, x, y;
+    long double sumatoria = 0.0;
 
     do
     {
@@ -31,5 +41,13 @@ void problema2()
     }
     while (y < 1 || y > 9);
 
-    //Todo: Por hacer 5A2
+    long double parte_constante = sqrt(x) * pow(y, 2 + x);
+
+    for (int i = 2; i <= n; i++)
+    {
+        long double parte_variable = (factorial2(i)) / pow(y, i + 1) * sin(x);
+        sumatoria += parte_constante + parte_variable;
+    }
+
+    cout << "La sumatoria es: " << sumatoria;
 }
