@@ -11,7 +11,7 @@
 // #include "encuesta6.h"
 #include "figuras1.h"
 #include "figuras2.h"
-// #include "figuras3.h"
+#include "figuras3.h"
 // #include "figuras4.h"
 // #include "figuras5.h"
 // #include "figuras6.h"
@@ -28,7 +28,7 @@ void mostrarMenu()
     // cout << "6. encuesta6" << endl;
     cout << "7. figuras1" << endl;
     cout << "8. figuras2" << endl;
-    // cout << "9. figuras3" << endl;
+    cout << "9. figuras3" << endl;
     // cout << "10. figuras4" << endl;
     // cout << "11. figuras5" << endl;
     // cout << "12. figuras6" << endl;
@@ -70,9 +70,9 @@ int main()
     case 8:
         figuras2();
         break;
-    // case 9:
-    //     figuras3();
-    //     break;
+    case 9:
+        figuras3();
+        break;
     // case 10:
     //     figuras4();
     //     break;

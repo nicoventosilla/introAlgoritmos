@@ -1,28 +1,33 @@
-#include "figuras2.h"
+//
+// Created by c0d3r on 01/10/2024.
+//
+
+#include "figuras3.h"
 #include <iostream>
 using namespace std;
 
-void dibujarCuadrados1(int n)
+void dibujarCuadrados2(int n)
 {
     int tamanio = 5;
-    int espacios = (n * 2);
+    int espacios = 0;
 
-    for (int k = 1; k <= n; k++)
+    for (int k = n; k >= 1; k--) // n° veces
     {
-        espacios -= 2;
+        espacios += 2;
 
-        for (int j = 0; j < tamanio; j++) // Filas
+        for (int fila = 1; fila <= tamanio; fila++) // Fila
         {
-            for (int esp = 1; esp <= espacios; esp++)
+
+            for (int esp = 1; esp <= espacios; esp++) // Espacios
             {
                 cout << " ";
             }
 
-            for (int i = 1; i <= k; i++) // Cuadrados
+            for (int j = 1; j <= k; j++) // Cuadrados
             {
-                for (int col = 0; col < tamanio - 1; col++) // Columnas
+                for (int i = 1; i <= tamanio - 1; i++)
                 {
-                    if (j == 0 || j == tamanio - 1 || col == 0 || col == tamanio - 2)
+                    if (fila == 1 || fila == tamanio || i == 1 || i == tamanio - 1)
                     {
                         cout << k;
                     }
@@ -37,7 +42,7 @@ void dibujarCuadrados1(int n)
     }
 }
 
-void figuras2()
+void figuras3()
 {
     int n;
 
@@ -50,8 +55,7 @@ void figuras2()
         {
             cout << "Numero no valido. Intentalo de nuevo." << endl;
         }
-    }
-    while (n < 1 || n > 5);
+    } while (n < 1 || n > 5);
 
-    dibujarCuadrados1(n);
+    dibujarCuadrados2(n);
 }
