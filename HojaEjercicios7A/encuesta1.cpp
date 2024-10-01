@@ -2,18 +2,17 @@
 // Created by c0d3r on 30/09/2024.
 //
 
-#include "problema1.h"
+#include "encuesta1.h"
 #include <iostream>
-#include <limits>
 using namespace std;
 
-void problema1()
+void encuesta1()
 {
     int edad, adultos_mayores = 0;
     char sexo, plataforma, satisfaccion;
     int suma_edades_canvas = 0, contador_canvas = 0;
     int contador_bueno = 0, contador_regular = 0, contador_malo = 0;
-    int edad_mujer_mas_joven = 0;
+    int edad_mujer_mas_joven = 100;
     bool existe_mujer_mas_joven = false;
 
     while (true)

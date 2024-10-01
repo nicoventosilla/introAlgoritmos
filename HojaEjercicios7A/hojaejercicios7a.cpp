@@ -3,37 +3,35 @@
 //
 
 #include "hojaejercicios7a.h"
-#include "problema1.h"
-// #include "problema2.h"
-// #include "problema3.h"
-// #include "problema4.h"
-// #include "problema5.h"
-// #include "problema6.h"
-// #include "problema8.h"
-// #include "problema7.h"
-// #include "problema9.h"
-// #include "problema10.h"
-// #include "problema11.h"
-// #include "problema12.h"
-// #include "problema13.h"
+#include "encuesta1.h"
+// #include "encuesta2.h"
+// #include "encuesta3.h"
+// #include "encuesta4.h"
+// #include "encuesta5.h"
+// #include "encuesta6.h"
+#include "figuras1.h"
+#include "figuras2.h"
+// #include "figuras3.h"
+// #include "figuras4.h"
+// #include "figuras5.h"
+// #include "figuras6.h"
 #include <iostream>
 using namespace std;
 
 void mostrarMenu()
 {
-    cout << "1. Problema 1" << endl;
-    // cout << "2. Problema 2" << endl;
-    // cout << "3. Problema 3" << endl;
-    // cout << "4. Problema 4" << endl;
-    // cout << "5. Problema 5" << endl;
-    // cout << "6. Problema 6" << endl;
-    // cout << "7. Problema 7" << endl;
-    // cout << "8. Problema 8" << endl;
-    // cout << "9. Problema 9" << endl;
-    // cout << "10. Problema 10" << endl;
-    // cout << "11. Problema 11" << endl;
-    // cout << "12. Problema 12" << endl;
-    // cout << "13. Problema 13" << endl;
+    cout << "1. encuesta1" << endl;
+    // cout << "2. encuesta2" << endl;
+    // cout << "3. encuesta3" << endl;
+    // cout << "4. encuesta4" << endl;
+    // cout << "5. encuesta5" << endl;
+    // cout << "6. encuesta6" << endl;
+    cout << "7. figuras1" << endl;
+    cout << "8. figuras2" << endl;
+    // cout << "9. figuras3" << endl;
+    // cout << "10. figuras4" << endl;
+    // cout << "11. figuras5" << endl;
+    // cout << "12. figuras6" << endl;
     cout << "0. Salir" << endl;
 }
 
@@ -49,43 +47,40 @@ int main()
     switch (opcion)
     {
     case 1:
-        problema1();
+        encuesta1();
         break;
     // case 2:
-    //     problema2();
+    //     encuesta2();
     //     break;
     // case 3:
-    //     problema3();
+    //     encuesta3();
     //     break;
     // case 4:
-    //     problema4();
+    //     encuesta4();
     //     break;
     // case 5:
-    //     problema5();
+    //     encuesta5();
     //     break;
     // case 6:
-    //     problema6();
+    //     encuesta6();
     //     break;
-    // case 7:
-    //     problema7();
-    //     break;
-    // case 8:
-    //     problema8();
-    //     break;
+    case 7:
+        figuras1();
+        break;
+    case 8:
+        figuras2();
+        break;
     // case 9:
-    //     problema9();
+    //     figuras3();
     //     break;
     // case 10:
-    //     problema10();
+    //     figuras4();
     //     break;
     // case 11:
-    //     problema11();
+    //     figuras5();
     //     break;
     // case 12:
-    //     problema12();
-    //     break;
-    // case 13:
-    //     problema13();
+    //     figuras6();
     //     break;
     default:
         cout << "Opcion no valida" << endl;

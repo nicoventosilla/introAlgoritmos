@@ -6,7 +6,7 @@
 #define PROBLEMA1_H
 
 
-void problema1();
+void encuesta1();
 
 
 #endif //PROBLEMA1_H
