@@ -48,9 +48,9 @@ int main()
 
     switch (opcion)
     {
-    // case 1:
-    //     problema1();
-    //     break;
+    case 1:
+        problema1();
+        break;
     // case 2:
     //     problema2();
     //     break;
