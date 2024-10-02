@@ -1,62 +1,50 @@
-//
-// Created by c0d3r on 17/09/2024.
-//
-
-#include "problema1.h"
-#include <iostream>
-#include <windows.h>
+#include <iostream> // Para usar cout
+#include <windows.h> // Para usar SetConsoleCursorPosition
 #include <chrono>
 #include <thread>
 using namespace std;
 
-void gotoxy(int x, int y)
-{
+void moverCursor(int x, int y) {
     COORD coord;
     coord.X = x;
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void problema1()
+// Función para dibujar el nuevo carácter
+void dibujarCaracter(int x, int y) {
+    moverCursor(x, y);
+    cout << "*";
+    this_thread::sleep_for(chrono::milliseconds(100));
+}
+
+// Función principal
+int main()
 {
-    int largo = 20;
-    int ancho = 10;
+    int alto = 10, ancho = 20;
     int x, y;
 
     while (true)
     {
-        // Movimiento de izquierda a derecha
-        for (x = 0; x <= largo; x++)
+        for (x = 0; x <= ancho; x++)
         {
-            gotoxy(x, 0);
-            cout << "*";
-            this_thread::sleep_for(chrono::milliseconds(100));
+            dibujarCaracter(x, 0);
         }
-
-        // Movimiento de arriba a abajo
-        for (y = 1; y <= ancho; y++)
+        for (y = 1; y < alto; y++)
         {
-            gotoxy(largo, y);
-            cout << "*";
-            this_thread::sleep_for(chrono::milliseconds(100));
+            dibujarCaracter(ancho, y);
         }
-
-        // Movimiento de derecha a izquierda
-        for (x = largo - 1; x >= 0; x--)
+        for (x = ancho; x >= 0; x--)
         {
-            gotoxy(x, ancho);
-            cout << "*";
-            this_thread::sleep_for(chrono::milliseconds(100));
+            dibujarCaracter(x, alto);
         }
-
-        // Movimiento de abajo a arriba
-        for (y = ancho - 1; y >= 1; y--)
+        for (y = alto; y > 0; y--)
         {
-            gotoxy(0, y);
-            cout << "*";
-            this_thread::sleep_for(chrono::milliseconds(100));
+            dibujarCaracter(0, y);
         }
 
         break;
     }
+
+    return 0;
 }
