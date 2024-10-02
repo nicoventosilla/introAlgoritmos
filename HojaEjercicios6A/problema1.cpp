@@ -26,7 +26,7 @@ void problema1()
     while (true)
     {
         // Movimiento de izquierda a derecha
-        for (x = 0; x <= largo - 1; x++)
+        for (x = 0; x <= largo; x++)
         {
             gotoxy(x, 0);
             cout << "*";
