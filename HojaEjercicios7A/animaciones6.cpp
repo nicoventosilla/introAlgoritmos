@@ -1,43 +1,78 @@
-//
-// Created by c0d3r on 01/10/2024.
-//
-
-#include "animaciones6.h"
 #include <iostream>
-#include <windows.h>
 #include <conio.h>
+#include <windows.h>
 using namespace std;
+
+void moverCursor(int x, int y)
+{
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void borrarCaracter(int x, int y)
+{
+    moverCursor(x, y);
+    cout << " ";
+}
+
+void dibujarCaracter(char caracter, int x, int y)
+{
+    moverCursor(x, y);
+    cout << caracter;
+}
 
 void animaciones6()
 {
-    int x = 1, y = 1;
-    char direccion = 'R';
-    int ancho = 40, alto = 15;
-    bool salir = false;
+    int x = 0, y = 0;
+    int dx = 0, dy = 0;
+    int ancho = 10, alto = 5;
+    char caracter = '*';
 
-    while (!salir)
+    dibujarCaracter(caracter, x, y);
+
+    while (true)
     {
-        system("cls");
-
-        for (int i = 0; i < y; i++) cout << endl;
-        for (int i = 0; i < x; i++) cout << " ";
-        cout << "*";
-
         if (_kbhit())
         {
             char tecla = _getch();
 
-            if (tecla == 27) salir = true;
-            else if (tecla == 72) direccion = 'U';
-            else if (tecla == 80) direccion = 'D';
-            else if (tecla == 77) direccion = 'R';
-            else if (tecla == 75) direccion = 'L';
+            if (tecla == 27) break;
+
+            else if (tecla == 72)
+            {
+                dx = 0;
+                dy = -1;
+            }
+            else if (tecla == 80)
+            {
+                dx = 0;
+                dy = 1;
+            }
+            else if (tecla == 77)
+            {
+                dx = 1;
+                dy = 0;
+            }
+            else if (tecla == 75)
+            {
+                dx = -1;
+                dy = 0;
+            }
         }
 
-        if (direccion == 'U' && y > 0) y--;
-        else if (direccion == 'D' && y <= alto) y++;
-        else if (direccion == 'R' && x <= ancho) x++;
-        else if (direccion == 'L' && x > 0) x--;
+        borrarCaracter(x, y);
+
+        x += dx;
+        y += dy;
+
+        if (x < 0) x = 0;
+        if (x >= ancho) x = ancho - 1;
+        if (y < 0) y = 0;
+        if (y >= alto) y = alto - 1;
+
+        dibujarCaracter(caracter, x, y);
 
         Sleep(100);
     }
