@@ -24,7 +24,7 @@
 // #include "series3.h"
 // #include "series4.h"
 // #include "series5.h"
-#include "animaciones1.h"
+// #include "animaciones1.h"
 // #include "animaciones2.h"
 // #include "animaciones3.h"
 // #include "animaciones4.h"
@@ -165,8 +165,8 @@ int main()
     // animaciones5();
     // break;
     // case 27:
-    // animaciones6();
-    // break;
+    //     animaciones6();
+    //     break;
     // case 28:
     // animaciones7();
     // break;

@@ -26,7 +26,7 @@ void dibujarCaracter(char caracter, int x, int y)
 void animaciones6()
 {
     int x = 0, y = 0;
-    int dx = 0, dy = 0;
+    int dx = 1, dy = 0;
     int ancho = 10, alto = 5;
     char caracter = '*';
 
