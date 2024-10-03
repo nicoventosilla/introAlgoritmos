@@ -154,4 +154,6 @@ add_executable(hojaejercicios7a HojaEjercicios7A/hojaejercicios7a.cpp HojaEjerci
         HojaEjercicios7A/encuesta6.cpp
         HojaEjercicios7A/encuesta6.h
         HojaEjercicios7A/series1.cpp
-        HojaEjercicios7A/series1.h)
+        HojaEjercicios7A/series1.h
+        HojaEjercicios7A/series3.cpp
+        HojaEjercicios7A/series3.h)
