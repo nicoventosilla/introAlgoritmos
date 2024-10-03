@@ -32,7 +32,7 @@ void series1()
 
         if (x < 0 || x > 1)
         {
-            cout << "El valor de x debe ser un numero (0 < x <= 1)";
+            cout << "El valor de x debe ser un numero (0 < x <= 1)" << endl;
         }
     } while (x <= 0 || x > 1);
 
@@ -43,7 +43,7 @@ void series1()
 
         if (N < 1 || N > 10)
         {
-            cout << "El valor de n debe ser un numero entre 1 y 10";
+            cout << "El valor de n debe ser un numero entre 1 y 10" << endl;
         }
     } while (N < 1 || N > 10);
 
