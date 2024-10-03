@@ -4,7 +4,7 @@
 
 #include "hojaejercicios7a.h"
 #include "encuesta1.h"
-// #include "encuesta2.h"
+#include "encuesta2.h"
 // #include "encuesta3.h"
 // #include "encuesta4.h"
 // #include "encuesta5.h"
@@ -41,7 +41,7 @@ using namespace std;
 void mostrarMenu()
 {
     cout << "1. encuesta1" << endl;
-    // cout << "2. encuesta2" << endl;
+    cout << "2. encuesta2" << endl;
     // cout << "3. encuesta3" << endl;
     // cout << "4. encuesta4" << endl;
     // cout << "5. encuesta5" << endl;
@@ -89,9 +89,9 @@ int main()
     case 1:
         encuesta1();
         break;
-    // case 2:
-    //     encuesta2();
-    //     break;
+    case 2:
+        encuesta2();
+        break;
     // case 3:
     //     encuesta3();
     //     break;
