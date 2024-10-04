@@ -125,7 +125,9 @@ add_executable(hojaejercicios5a HojaEjercicios5A/hojaejercicios5a.cpp HojaEjerci
         HojaEjercicios5A/problema2.cpp
         HojaEjercicios5A/problema2.h
         HojaEjercicios5A/problema3.cpp
-        HojaEjercicios5A/problema3.h)
+        HojaEjercicios5A/problema3.h
+        HojaEjercicios5A/problema4.cpp
+        HojaEjercicios5A/problema4.h)
 add_executable(hojaejercicios5c HojaEjercicios5C/hojaejercicios5c.cpp HojaEjercicios5C/hojaejercicios5c.h
         HojaEjercicios5C/problema1.cpp
         HojaEjercicios5C/problema1.h
