@@ -167,4 +167,6 @@ add_executable(hojaejercicios7a "Hoja de Ejercicios 7A/hojaejercicios7a.cpp" "Ho
         "Hoja de Ejercicios 7A/series4.h")
 add_executable(hojaejercicios5b "Hoja de Ejercicios 5B/hojaejercicios5b.cpp" "Hoja de Ejercicios 5B/hojaejercicios5b.h"
         "Hoja de Ejercicios 5B/problema1.cpp"
-        "Hoja de Ejercicios 5B/problema1.h")
+        "Hoja de Ejercicios 5B/problema1.h"
+        "Hoja de Ejercicios 5B/problema2.cpp"
+        "Hoja de Ejercicios 5B/problema2.h")
