@@ -24,7 +24,7 @@ int leer_n2()
     return n;
 }
 
-void dibujar_triangulo2(int identificador, int espacios)
+void dibujar_cuadrado(int identificador, int espacios)
 {
     for (int j = 1; j <= 4; j++)
     {
@@ -56,18 +56,18 @@ void problema2()
     {
         for (int f = 1; f <= k; f++)
         {
-            dibujar_triangulo2(k, (f - 1) * 4);
+            dibujar_cuadrado(k, (f - 1) * 4);
         }
         cout << endl;
     }
 }
 
 /*
-for (int k = 1; k <= n; k++) // cantidad de triangulos
+for (int k = 1; k <= n; k++) // cantidad de cuadrados
     {
         for (int f = 1; f <= k; f++) // filas
         {
-            for (int j = 1; j <= tamanio; j++) // triangulo
+            for (int j = 1; j <= tamanio; j++) // cuadrados
             {
                 espacios = tamanio * (f - 1);
 
