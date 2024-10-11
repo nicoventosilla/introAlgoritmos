@@ -9,8 +9,8 @@
 #include "problema4.h"
 #include "problema5.h"
 #include "problema6.h"
+#include "problema7.h"
 // #include "problema8.h"
-// #include "problema7.h"
 // #include "problema9.h"
 // #include "problema10.h"
 #include <iostream>
@@ -24,7 +24,7 @@ void mostrarMenu()
     cout << "4. Problema 4" << endl;
     cout << "5. Problema 5" << endl;
     cout << "6. Problema 6" << endl;
-    // cout << "7. Problema 7" << endl;
+    cout << "7. Problema 7" << endl;
     // cout << "8. Problema 8" << endl;
     // cout << "9. Problema 9" << endl;
     // cout << "10. Problema 10" << endl;
@@ -60,9 +60,9 @@ int main()
     case 6:
         problema6();
         break;
-    // case 7:
-    //     problema7();
-    //     break;
+    case 7:
+        problema7();
+        break;
     // case 8:
     //     problema8();
     //     break;
