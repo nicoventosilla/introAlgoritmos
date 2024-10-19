@@ -4,9 +4,7 @@ project(introAlgoritmos)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(main main.cpp)
-add_executable(hojaejercicios2
-        "Hoja de Ejercicios 2/hojaejercicios2.cpp"
-        "Hoja de Ejercicios 2/hojaejercicios2.h"
+add_executable(hojaejercicios2 "Hoja de Ejercicios 2/hojaejercicios2.cpp" "Hoja de Ejercicios 2/hojaejercicios2.h"
         "Hoja de Ejercicios 2/problema2.cpp"
         "Hoja de Ejercicios 2/problema2.h"
         "Hoja de Ejercicios 2/problema3.cpp"
@@ -38,9 +36,7 @@ add_executable(hojaejercicios2
         "Hoja de Ejercicios 2/problema15.cpp"
         "Hoja de Ejercicios 2/problema15.h"
 )
-add_executable(hojaejercicios3a
-        "Hoja de Ejercicios 3A/hojaejercicios3.cpp"
-        "Hoja de Ejercicios 3A/hojaejercicios3.h"
+add_executable(hojaejercicios3a "Hoja de Ejercicios 3A/hojaejercicios3.cpp" "Hoja de Ejercicios 3A/hojaejercicios3.h"
         "Hoja de Ejercicios 3A/problema1.cpp"
         "Hoja de Ejercicios 3A/problema1.h"
         "Hoja de Ejercicios 3A/problema2.cpp"
@@ -66,9 +62,7 @@ add_executable(hojaejercicios3a
         "Hoja de Ejercicios 3A/problema13.cpp"
         "Hoja de Ejercicios 3A/problema13.h"
 )
-add_executable(hojaejercicios3b
-        "Hoja de Ejercicios 3B/hojaejercicios3b.cpp"
-        "Hoja de Ejercicios 3B/hojaejercicios3b.h"
+add_executable(hojaejercicios3b "Hoja de Ejercicios 3B/hojaejercicios3b.cpp" "Hoja de Ejercicios 3B/hojaejercicios3b.h"
         "Hoja de Ejercicios 3B/problema1.cpp"
         "Hoja de Ejercicios 3B/problema1.h"
         "Hoja de Ejercicios 3B/problema2.cpp"
@@ -180,3 +174,11 @@ add_executable(hojaejercicios5b "Hoja de Ejercicios 5B/hojaejercicios5b.cpp" "Ho
         "Hoja de Ejercicios 5B/problema6.h"
         "Hoja de Ejercicios 5B/problema7.cpp"
         "Hoja de Ejercicios 5B/problema7.h")
+add_executable(hojaejercicios9 "Hoja de Ejercicios 9/hojaejercicios9.cpp" "Hoja de Ejercicios 9/hojaejercicios9.h"
+        "Hoja de Ejercicios 9/problema1.cpp"
+        "Hoja de Ejercicios 9/problema1.h")
+add_executable(hojaejercicios10 "Hoja de Ejercicios 10/hojaejercicios10.cpp" "Hoja de Ejercicios 10/hojaejercicios10.h"
+        "Hoja de Ejercicios 10/problema1.cpp"
+        "Hoja de Ejercicios 10/problema1.h"
+        "Hoja de Ejercicios 10/problema2.cpp"
+        "Hoja de Ejercicios 10/problema2.h")
