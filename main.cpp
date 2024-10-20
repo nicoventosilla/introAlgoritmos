@@ -17,7 +17,7 @@ void stackExample() {
     int *ptrB = &b; // Puntero a una variable en el stack
 
     *ptrA = 30; // Modificando el valor de 'a' a través del puntero
-    *ptrB = 40; // Modificando el valor de 'b' a través del puntero
+    *ptrB = 40 ; // Modificando el valor de 'b' a través del puntero
 
     cout << "ptrA: " << *ptrA << " y su direccion de memoria es: " << ptrA << endl;
     cout << "ptrB: " << *ptrB << " y su direccion de memoria es: " << ptrB << endl;
