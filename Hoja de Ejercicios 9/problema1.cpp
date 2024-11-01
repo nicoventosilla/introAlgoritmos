@@ -18,7 +18,7 @@ void Generar_numero(int* num1, int* num2, int* num3, int* num4)
 {
     do
     {
-        *num1 = numero_aleatorio();
+        *num1 = numero_aleatorio(); // Asignar un número aleatorio a la dirección de memoria num1
         *num2 = numero_aleatorio();
         *num3 = numero_aleatorio();
         *num4 = numero_aleatorio();
@@ -37,7 +37,7 @@ int Hallar_menor(int num1, int num2, int num3, int num4)
     return min(num1, min(num2, min(num3, num4))); // Retorna el menor de los 4 números
 }
 
-int Hallar_anterior_mayor(int num1, int num2, int num3, int num4)
+int Hallar_anterior_mayor(int num1, int num2, int num3, int num4) // Hallar el segundo mayor
 {
     int mayor = Hallar_mayor(num1, num2, num3, num4);
     int anterior_mayor = 0;
@@ -52,7 +52,7 @@ int Hallar_anterior_mayor(int num1, int num2, int num3, int num4)
 
 void Graficar(int* num1, int* num2, int* num3, int* num4)
 {
-    int numeros[4] = {*num1, *num2, *num3, *num4};
+    int numeros[4] = {*num1, *num2, *num3, *num4}; // Arreglo con los 4 números
     sort(numeros, numeros + 4); // Ordenar los números de menor a mayor
 
     int espacios = 0;
