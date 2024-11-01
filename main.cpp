@@ -3,43 +3,37 @@
 //
 
 #include <iostream>
+
 using namespace std;
 
-void stackExample() {
-    int a = 10; // Variable en el stack
-    int b = 20; // Variable en el stack
+int main()
+{
+    const int tamanioInventario = 5;
 
-    cout << "Stack Example:" << endl;
-    cout << "a: " << a << " y su direccion de memoria es: " << &a << endl;
-    cout << "b: " << b << " y su direccion de memoria es: " << &b << endl;
+    string nombres[tamanioInventario] = {"Laptop", "Mouse", "Teclado", "Monitor", "Impresora"};
+    int cantidades[tamanioInventario] = {10, 20, 30, 40, 50};
+    double precios[tamanioInventario] = {1000.0, 50.0, 100.0, 500.0, 200.0};
 
-    int *ptrA = &a; // Puntero a una variable en el stack
-    int *ptrB = &b; // Puntero a una variable en el stack
+    cout << "Inventario Inicial" << endl;
+    cout << "---------------------------------" << endl;
+    cout << "Nombre\t\tCantidad\tPrecio" << endl;
+    cout << "---------------------------------" << endl;
 
-    *ptrA = 30; // Modificando el valor de 'a' a través del puntero
-    *ptrB = 40 ; // Modificando el valor de 'b' a través del puntero
+    for (int i = 0; i < tamanioInventario; i++)
+    {
+        cout << nombres[i] << "\t\t" << cantidades[i] << "\t\t" << precios[i] << endl;
+    }
 
-    cout << "ptrA: " << *ptrA << " y su direccion de memoria es: " << ptrA << endl;
-    cout << "ptrB: " << *ptrB << " y su direccion de memoria es: " << ptrB << endl;
-}
+    cantidades[1] -= 5;
+    cantidades[3] -= 10;
 
-void heapExample() {
-    int *ptrA = new int; // Asignando memoria en el heap
-    int *ptrB = new int; // Asignando memoria en el heap
+    cout << "Inventario Final" << endl;
+    cout << "---------------------------------" << endl;
+    cout << "Nombre\t\tCantidad\tPrecio" << endl;
+    cout << "---------------------------------" << endl;
 
-    *ptrA = 50; // Asignando valor a la memoria en el heap
-    *ptrB = 60; // Asignando valor a la memoria en el heap
-
-    cout << "Heap Example:" << endl;
-    cout << "ptrA: " << *ptrA << " y su direccion de memoria es: " << ptrA << endl;
-    cout << "ptrB: " << *ptrB << " y su direccion de memoria es: " << ptrB << endl;
-
-    delete ptrA; // Liberando memoria en el heap
-    delete ptrB; // Liberando memoria en el heap
-}
-
-int main() {
-    stackExample();
-    heapExample();
-    return 0;
+    for (int i = 0; i < tamanioInventario; i++)
+    {
+        cout << nombres[i] << "\t\t" << cantidades[i] << "\t\t" << precios[i] << endl;
+    }
 }
