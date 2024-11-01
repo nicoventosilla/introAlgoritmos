@@ -128,4 +128,7 @@ void problema2()
     cantidadPersonasContexturaDelgada(pesosClientes, cantidadClientes);
     cantidadPersonasContexturaMediana(pesosClientes, cantidadClientes);
     cantidadPersonasContexturaGruesa(pesosClientes, cantidadClientes);
+
+    // Liberar memoria
+    delete[] pesosClientes;
 }
