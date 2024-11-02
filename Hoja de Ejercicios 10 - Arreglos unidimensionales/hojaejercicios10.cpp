@@ -18,7 +18,6 @@ void mostrarMenu()
     cout << "3. Problema 3" << endl;
     // cout << "4. Problema 4" << endl;
     // cout << "5. Problema 5" << endl;
-    cout << "0. Salir" << endl;
 }
 
 int main()
