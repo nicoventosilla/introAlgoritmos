@@ -189,3 +189,5 @@ add_executable(hojaejercicios10 "Hoja de Ejercicios 10 - Arreglos unidimensional
 add_executable(hojaejercicios10a "Hoja de Ejercicios 10A - Arreglos y animaciones/hojaejercicios10a.cpp" "Hoja de Ejercicios 10A - Arreglos y animaciones/hojaejercicios10a.h"
         "Hoja de Ejercicios 10A - Arreglos y animaciones/problema1.cpp"
         "Hoja de Ejercicios 10A - Arreglos y animaciones/problema1.h")
+add_executable(hojaejercicios12 "Hoja de Ejercicios 12 - Struct/hojaejercicios12.cpp" "Hoja de Ejercicios 12 - Struct/hojaejercicios12.h")
+add_executable(hojaejercicios13 "Hoja de Ejercicios 13 - Arreglos bidimensionales/hojaejercicios13.cpp" "Hoja de Ejercicios 13 - Arreglos bidimensionales/hojaejercicios13.h")
