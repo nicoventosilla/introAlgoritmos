@@ -13,6 +13,7 @@ void problema4()
 {
     srand(time(0));
 
+    // Ingresar el numero de pernos
     int numero_pernos;
 
     do
@@ -27,12 +28,13 @@ void problema4()
     }
     while (numero_pernos < 1 || numero_pernos > 100);
 
+    // Crear un arreglo de pernos
     int* Pernos = new int[numero_pernos];
 
-    // Genera un numero aleatorio entre 5 y 30
+    // Genera un numero aleatorio entre 5 y 30: rand() % (max - min + 1) + min;
     for (int i = 0; i < numero_pernos; i++)
     {
-        Pernos[i] = rand() % 26 + 5;
+        Pernos[i] = rand() % (30 - 5 + 1) + 5;
     }
 
     // Ordenar el diametro de los pernos de mayor a menor
@@ -68,6 +70,7 @@ void problema4()
 
     cout << "\nEl promedio del diametro de los pernos es: " << promedio << endl;
 
+    // Buscar pernos con diametro menor al ingresado
     int diametro;
     cout << "Ingrese el diametro del perno a buscar: ";
     cin >> diametro;
