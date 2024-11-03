@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Muestra el menú de opciones
 void menu()
 {
     cout << endl;
@@ -18,103 +19,124 @@ void menu()
     cout << "8. SALIR\n";
 }
 
-void listarElementos(int* arreglo, int n) // Listar elementos del arreglo
+// Lista los elementos del arreglo
+void listarElementos(int* arreglo, int n)
 {
     cout << "Elementos del arreglo: ";
-    for (int i = 0; i < n; i++) // Recorrer el arreglo
+    for (int i = 0; i < n; i++)
     {
-        cout << arreglo[i] << " "; // Mostrar el elemento
+        cout << arreglo[i] << " ";
     }
     cout << endl;
 }
 
-// int*& arreglo: Para poder modificar el arreglo original
-// int& n: Para poder modificar la cantidad de elementos del arreglo
+// Agrega un valor al final del arreglo
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int& n: Referencia a la cantidad de elementos del arreglo
 // int valor: Valor a agregar al final del arreglo
-
-void agregarValor(int*& arreglo, int& n, int valor) // Agregar un valor al final del arreglo
+void agregarValor(int*& arreglo, int& n, int valor)
 {
     int* nuevoArreglo = new int[n + 1]; // Reservar memoria para el nuevo arreglo
 
     for (int i = 0; i < n; i++)
     {
-        nuevoArreglo[i] = arreglo[i];
+        nuevoArreglo[i] = arreglo[i]; // Copiar elementos del arreglo original
     }
 
-    nuevoArreglo[n] = valor; // Agregar el valor al final del nuevo arreglo
-    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al arreglo original
-    n++; // Incrementar la cantidad de elementos del nuevo arreglo
+    nuevoArreglo[n] = valor; // Agregar el nuevo valor al final
+    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al original
+    n++; // Incrementar la cantidad de elementos
 }
 
-void eliminarPosicion(int*& arreglo, int& n, int posicion) // Eliminar un elemento en una posicion
+// Elimina un elemento en una posición específica del arreglo
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int& n: Referencia a la cantidad de elementos del arreglo
+// int posicion: Posición del elemento a eliminar
+void eliminarPosicion(int*& arreglo, int& n, int posicion)
 {
     int* nuevoArreglo = new int[n - 1]; // Reservar memoria para el nuevo arreglo
 
     for (int i = 0; i < posicion; i++)
     {
-        nuevoArreglo[i] = arreglo[i]; // Copiar los elementos antes de la posicion a eliminar
+        nuevoArreglo[i] = arreglo[i]; // Copiar elementos antes de la posición a eliminar
     }
 
     for (int i = posicion + 1; i < n; i++)
     {
-        nuevoArreglo[i - 1] = arreglo[i]; // Copiar los elementos despues de la posicion a eliminar
+        nuevoArreglo[i - 1] = arreglo[i]; // Copiar elementos después de la posición a eliminar
     }
 
-    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al arreglo original
-    n--; // Decrementar la cantidad de elementos del nuevo arreglo
+    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al original
+    n--; // Decrementar la cantidad de elementos
 }
 
-void agregarValorInicio(int*& arreglo, int& n, int valor) // Agregar un valor al inicio del arreglo
+// Agrega un valor al inicio del arreglo
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int& n: Referencia a la cantidad de elementos del arreglo
+// int valor: Valor a agregar al inicio del arreglo
+void agregarValorInicio(int*& arreglo, int& n, int valor)
 {
     int* nuevoArreglo = new int[n + 1]; // Reservar memoria para el nuevo arreglo
 
-    nuevoArreglo[0] = valor; // Agregar el valor al inicio del nuevo arreglo
+    nuevoArreglo[0] = valor; // Agregar el nuevo valor al inicio
 
     for (int i = 0; i < n; i++)
     {
-        nuevoArreglo[i + 1] = arreglo[i]; // Copiar los elementos del arreglo original
+        nuevoArreglo[i + 1] = arreglo[i]; // Copiar elementos del arreglo original
     }
 
-    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al arreglo original
-    n++; // Incrementar la cantidad de elementos del nuevo arreglo
+    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al original
+    n++; // Incrementar la cantidad de elementos
 }
 
-void modificarPosicion(int*& arreglo, int& n, int posicion, int valor)
+// Modifica el valor en una posición específica del arreglo
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int posicion: Posición del elemento a modificar
+// int valor: Nuevo valor a asignar
+void modificarPosicion(int*& arreglo, int posicion, int valor)
 {
-    arreglo[posicion] = valor; // Modificar el valor en la posicion indicada
+    arreglo[posicion] = valor; // Modificar el valor en la posición indicada
 }
 
+// Inserta un valor en una posición específica del arreglo
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int& n: Referencia a la cantidad de elementos del arreglo
+// int posicion: Posición donde insertar el nuevo valor
+// int valor: Valor a insertar
 void insertarPosicion(int*& arreglo, int& n, int posicion, int valor)
 {
     int* nuevoArreglo = new int[n + 1]; // Reservar memoria para el nuevo arreglo
 
     for (int i = 0; i < posicion; i++)
     {
-        nuevoArreglo[i] = arreglo[i]; // Copiar los elementos antes de la posicion a insertar
+        nuevoArreglo[i] = arreglo[i]; // Copiar elementos antes de la posición de inserción
     }
 
-    nuevoArreglo[posicion] = valor; // Agregar el valor en la posicion indicada
+    nuevoArreglo[posicion] = valor; // Insertar el nuevo valor en la posición indicada
 
     for (int i = posicion; i < n; i++)
     {
-        nuevoArreglo[i + 1] = arreglo[i]; // Copiar los elementos despues de la posicion a insertar
+        nuevoArreglo[i + 1] = arreglo[i]; // Copiar elementos después de la posición de inserción
     }
 
-    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al arreglo original
-    n++; // Incrementar la cantidad de elementos del nuevo arreglo
+    arreglo = nuevoArreglo; // Asignar el nuevo arreglo al original
+    n++; // Incrementar la cantidad de elementos
 }
 
+// Ordena el arreglo de mayor a menor
+// int*& arreglo: Referencia al arreglo para modificarlo
+// int n: Cantidad de elementos del arreglo
 void ordenarDeMayorAMenor(int*& arreglo, int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int j = 0; j < n - 1; j++)
     {
-        for (int j = i + 1; j < n; j++)
+        for (int i = j + 1; i < n; i++)
         {
-            if (arreglo[i] < arreglo[j])
+            if (arreglo[j] < arreglo[i])
             {
-                int aux = arreglo[i];
-                arreglo[i] = arreglo[j];
-                arreglo[j] = aux;
+                int temp = arreglo[j];
+                arreglo[j] = arreglo[i];
+                arreglo[i] = temp;
             }
         }
     }
@@ -123,7 +145,7 @@ void ordenarDeMayorAMenor(int*& arreglo, int n)
 int main()
 {
     int n; // Cantidad de elementos del arreglo
-    int opcion; // Opcion del menu
+    int opcion; // Opción del menú
 
     cout << "Ingrese la cantidad de elementos del arreglo: ";
     cin >> n;
@@ -140,7 +162,7 @@ int main()
     {
         menu();
 
-        cout << "Ingrese una opcion: ";
+        cout << "Ingrese una opción: ";
         cin >> opcion;
 
         switch (opcion)
@@ -157,8 +179,8 @@ int main()
             break;
         case 3:
             int posicion;
-            cout << "Ingrese la posicion a eliminar: ";
-            cin >> posicion; // Posicion a eliminar
+            cout << "Ingrese la posición a eliminar: ";
+            cin >> posicion; // Posición a eliminar
             eliminarPosicion(arreglo, n, posicion);
             listarElementos(arreglo, n);
             break;
@@ -172,18 +194,18 @@ int main()
         case 5:
             int posicion_modificar;
             int valor_modificar;
-            cout << "Ingrese la posicion a modificar: ";
-            cin >> posicion_modificar; // Posicion a modificar
+            cout << "Ingrese la posición a modificar: ";
+            cin >> posicion_modificar; // Posición a modificar
             cout << "Ingrese el nuevo valor: ";
             cin >> valor_modificar; // Nuevo valor
-            modificarPosicion(arreglo, n, posicion_modificar, valor_modificar);
+            modificarPosicion(arreglo, posicion_modificar, valor_modificar);
             listarElementos(arreglo, n);
             break;
         case 6:
             int posicion_insertar;
             int valor_insertar;
-            cout << "Ingrese la posicion a insertar: ";
-            cin >> posicion_insertar; // Posicion a insertar
+            cout << "Ingrese la posición a insertar: ";
+            cin >> posicion_insertar; // Posición a insertar
             cout << "Ingrese el valor a insertar: ";
             cin >> valor_insertar; // Valor a insertar
             insertarPosicion(arreglo, n, posicion_insertar, valor_insertar);
@@ -197,6 +219,6 @@ int main()
             break;
         }
     }
-    while (opcion != 8); // Salir del menu
+    while (opcion != 8); // Salir del menú
 }
 ```
