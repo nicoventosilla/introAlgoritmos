@@ -1,14 +1,13 @@
 //
-// Created by c0d3r on 03/11/2024.
+// Created by c0d3r on 05/11/2024.
 //
 
-#include "hojaejercicios12.h"
+#include "hojaejercicios14.h"
 #include "problema1.h"
-// #include "problema2.h"
+#include "problema2.h"
 // #include "problema3.h"
 // #include "problema4.h"
 // #include "problema5.h"
-// #include "problema6.h"
 
 #include <iostream>
 using namespace std;
@@ -16,11 +15,10 @@ using namespace std;
 void mostrarMenu()
 {
     cout << "1. Problema 1" << endl;
-    // cout << "2. Problema 2" << endl;
+    cout << "2. Problema 2" << endl;
     // cout << "3. Problema 3" << endl;
     // cout << "4. Problema 4" << endl;
     // cout << "5. Problema 5" << endl;
-    // cout << "6. Problema 6" << endl;
 }
 
 int main()
@@ -37,9 +35,9 @@ int main()
     case 1:
         problema1();
         break;
-    // case 2:
-    //     problema2();
-    //     break;
+    case 2:
+        problema2();
+        break;
     // case 3:
     //     problema3();
     //     break;
@@ -48,9 +46,6 @@ int main()
     //     break;
     // case 5:
     //     problema5();
-    //     break;
-    // case 6:
-    //     problema6();
     //     break;
     default:
         cout << "Opcion no valida" << endl;
