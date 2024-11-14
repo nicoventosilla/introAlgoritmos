@@ -205,3 +205,8 @@ add_executable(hojaejercicios14 "Hoja de Ejercicios 14 - Matrices y arreglos/hoj
 add_executable(pc2 PC2/pc2.cpp PC2/pc2.h
         PC2/problema1.cpp
         PC2/problema1.h)
+add_executable(hojaejercicios15 "Hoja de Ejercicios 15 - Casos integradores/hojaejercicios15.cpp" "Hoja de Ejercicios 15 - Casos integradores/hojaejercicios15.h"
+        "Hoja de Ejercicios 15 - Casos integradores/problema1.cpp"
+        "Hoja de Ejercicios 15 - Casos integradores/problema1.h"
+        "Hoja de Ejercicios 15 - Casos integradores/problema2.cpp"
+        "Hoja de Ejercicios 15 - Casos integradores/problema2.h")
