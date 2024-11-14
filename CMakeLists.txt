@@ -202,3 +202,6 @@ add_executable(hojaejercicios14 "Hoja de Ejercicios 14 - Matrices y arreglos/hoj
         "Hoja de Ejercicios 14 - Matrices y arreglos/problema1.h"
         "Hoja de Ejercicios 14 - Matrices y arreglos/problema2.cpp"
         "Hoja de Ejercicios 14 - Matrices y arreglos/problema2.h")
+add_executable(pc2 PC2/pc2.cpp PC2/pc2.h
+        PC2/problema1.cpp
+        PC2/problema1.h)
