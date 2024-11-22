@@ -68,24 +68,25 @@ void mostrarEncuestados(Encuestado ArregloEncuestados[], int numero_personas_enc
 
 void mayorVotacion(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
 {
-    int votos[5] = {0, 0, 0, 0, 0};
-    for (int i = 0; i < numero_personas_encuestadas; i++)
+    int votos[5] = {0, 0, 0, 0, 0}; // Inicializamos el arreglo de votos en 0 para cada nivel de aprobacion
+    for (int i = 0; i < numero_personas_encuestadas; i++) // Contamos los votos
     {
-        votos[ArregloEncuestados[i].nivel_aprobacion - 1]++;
+        votos[ArregloEncuestados[i].nivel_aprobacion - 1]++; // Restamos 1 al nivel de aprobacion para que sea un indice valido
     }
 
     int mayor_votacion = 0;
     int nivel_aprobacion_mayor_votacion = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++) // Buscamos el nivel de aprobacion con mayor votacion
     {
-        if (votos[i] > mayor_votacion)
+        if (votos[i] > mayor_votacion) // Si encontramos un nivel de aprobacion con mayor votacion
         {
-            mayor_votacion = votos[i];
-            nivel_aprobacion_mayor_votacion = i + 1;
+            mayor_votacion = votos[i]; // Actualizamos la mayor votacion
+            nivel_aprobacion_mayor_votacion = i + 1; // Actualizamos el nivel de aprobacion con mayor votacion
         }
     }
 
-    cout << "El nivel de aprobacion que obtuvo la mayor votación fue: " << nivel_aprobacion_mayor_votacion << endl;
+    cout << "El nivel de aprobacion que obtuvo la mayor votación fue: " << nivel_aprobacion_mayor_votacion << " con " <<
+        mayor_votacion << " votos" << endl;
 }
 
 void nivelSocioeconomicoA(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
