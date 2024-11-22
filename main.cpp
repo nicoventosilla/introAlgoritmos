@@ -1,7 +1,3 @@
-//
-// Created by c0d3r on 12/10/2024.
-//
-
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -17,21 +13,21 @@ void mostrarMenu() {
     cout << "5. Salir" << endl;
 }
 
-void llenarArreglo(int* arr, int size) {
+void llenarArreglo(int arr[], int size) {
     srand(time(0));
     for (int i = 0; i < size; i++) {
         arr[i] = rand() % 100; // Valores aleatorios entre 0 y 99
     }
 }
 
-void mostrarArreglo(int* arr, int size) {
+void mostrarArreglo(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
-int buscarValor(int* arr, int size, int valor) {
+int buscarValor(int arr[], int size, int valor) {
     for (int i = 0; i < size; i++) {
         if (arr[i] == valor) {
             return i;
@@ -40,7 +36,7 @@ int buscarValor(int* arr, int size, int valor) {
     return -1; // Valor no encontrado
 }
 
-void ordenarArreglo(int* arr, int size) {
+void ordenarArreglo(int arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
@@ -53,7 +49,7 @@ void ordenarArreglo(int* arr, int size) {
 int main() {
     int opcion;
     const int size = 10;
-    int* arreglo = new int[size];
+    int arreglo[size];
 
     do {
         mostrarMenu();
@@ -93,6 +89,5 @@ int main() {
         }
     } while (opcion != 5);
 
-    delete[] arreglo;
     return 0;
 }

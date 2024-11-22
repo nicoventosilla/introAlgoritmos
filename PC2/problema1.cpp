@@ -35,305 +35,181 @@ using namespace std;
 * 7.	Mostrar registros de asistencia en orden descendente: Presentar todos los registros de asistencia de un aula, ordenados de mayor a menor, para ese día.
 */
 
+const int AULAS = 3;
+const int HORAS_DIA = 23;
+
 struct RegistroAsistencia
 {
-    int asistencias;
-    int dia;
-    int hora;
+    int asistencias, dia, hora;
 };
 
-void mostrarMenuOpciones()
+void inicializarMatriz(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
-    cout << "\nREGISTRO DIARIO DE ASISTENCIA A CLASE" << endl;
-    cout << "1. Registrar asistencia" << endl;
-    cout << "2. Consultar hora con mayor asistencia en un aula especifica" << endl;
-    cout << "3. Consultar hora con menor asistencia en un aula especifica" << endl;
-    cout << "4. Modificar asistencia" << endl;
-    cout << "5. Consultar asistencia especifica" << endl;
-    cout << "6. Calcular total de asistencias en la manana" << endl;
-    cout << "7. Mostrar registros de asistencia en orden descendente" << endl;
-    cout << "8. Salir" << endl;
+    cout << "Inicializando matriz..." << endl;
+    for (int i = 0; i < AULAS; i++)
+    {
+        for (int j = 0; j < HORAS_DIA; j++)
+        {
+            MatrizAsistencias[i][j].asistencias = 0;
+            MatrizAsistencias[i][j].dia = 0;
+            MatrizAsistencias[i][j].hora = 0;
+        }
+    }
+    cout << endl;
 }
 
-void registrarAsistencia(RegistroAsistencia** Asistencias, int aulas, int horas)
+void mostrarRegistros(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
-    int aula;
-    int hora;
-    int asistencias;
-    int dia;
+    for (int i = 0; i < AULAS; i++)
+    {
+        for (int j = 0; j < HORAS_DIA; j++)
+        {
+            cout << "A: " << MatrizAsistencias[i][j].asistencias;
+            cout << " D: " << MatrizAsistencias[i][j].dia;
+            cout << " H: " << MatrizAsistencias[i][j].hora;
+            cout << "\t";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
 
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
+void registrarAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
+{
+    cout << "Registrando asistencia..." << endl;
+    int aula, asistencias, dia, hora;
+    cout << "Ingrese aula: ";
     cin >> aula;
-
-    cout << "Ingrese la hora (0 - " << horas - 1 << "): ";
-    cin >> hora;
-
-    cout << "Ingrese el numero de asistencias: ";
+    cout << "Ingrese estudiantes que asistieron: ";
     cin >> asistencias;
-
-    cout << "Ingrese el dia (1 - 31): ";
+    cout << "Ingrese dia: ";
     cin >> dia;
-
-    if (aula >= 0 && aula < aulas && hora >= 0 && hora < horas && dia >= 1 && dia <= 31)
-    {
-        Asistencias[aula][hora].asistencias = asistencias;
-        Asistencias[aula][hora].dia = dia;
-        Asistencias[aula][hora].hora = hora;
-    }
-    else
-    {
-        cout << "Aula, hora o dia no validos" << endl;
-    }
-}
-
-void consultarHoraMayorAsistencia(RegistroAsistencia** Asistencias, int aulas, int horas)
-{
-    int aula;
-
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
-    cin >> aula;
-
-    if (aula >= 0 && aula < aulas)
-    {
-        int maxAsistencias = Asistencias[aula][0].asistencias;
-        int horaMaxAsistencias = 0;
-
-        for (int i = 1; i < horas; ++i)
-        {
-            if (Asistencias[aula][i].asistencias > maxAsistencias)
-            {
-                maxAsistencias = Asistencias[aula][i].asistencias;
-                horaMaxAsistencias = i;
-            }
-        }
-
-        cout << "La hora con mayor asistencia en el aula " << aula << " es: " << horaMaxAsistencias << endl;
-    }
-    else
-    {
-        cout << "Aula no valida" << endl;
-    }
-}
-
-void consultarHoraMenorAsistencia(RegistroAsistencia** Asistencias, int aulas, int horas)
-{
-    int aula;
-
-    cout << "Ingrese el aula: ";
-    cin >> aula;
-
-    if (aula >= 0 && aula < aulas)
-    {
-        int minAsistencias = Asistencias[aula][0].asistencias;
-        int horaMinAsistencias = 0;
-
-        for (int i = 1; i < horas; ++i)
-        {
-            if (Asistencias[aula][i].asistencias < minAsistencias)
-            {
-                minAsistencias = Asistencias[aula][i].asistencias;
-                horaMinAsistencias = i;
-            }
-        }
-
-        cout << "La hora con menor asistencia en el aula " << aula << " es: " << horaMinAsistencias << endl;
-    }
-    else
-    {
-        cout << "Aula no valida" << endl;
-    }
-}
-
-void modificarAsistencia(RegistroAsistencia** Asistencias, int aulas, int horas)
-{
-    int aula;
-    int hora;
-    int asistencias;
-    int dia;
-
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
-    cin >> aula;
-
-    cout << "Ingrese la hora (0 - " << horas - 1 << "): ";
+    cout << "Ingrese hora del dia: ";
     cin >> hora;
+    MatrizAsistencias[aula][hora].asistencias = asistencias;
+    MatrizAsistencias[aula][hora].dia = dia;
+    MatrizAsistencias[aula][hora].hora = hora;
+    cout << "Asistencia registrada correctamente" << endl;
+}
 
-    cout << "Ingrese el numero de asistencias: ";
+void consultarHoraConMayorAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
+{
+    cout << "Consultando hora con mayor asistencia en un aula..." << endl;
+    int aula;
+    cout << "Ingrese aula a buscar: ";
+    cin >> aula;
+    int mayorAsistencias = MatrizAsistencias[aula][0].asistencias;
+    int horaMayorAsistencias = 0;
+    for (int i = 1; i < HORAS_DIA; i++)
+    {
+        if (MatrizAsistencias[aula][i].asistencias > mayorAsistencias)
+        {
+            mayorAsistencias = MatrizAsistencias[aula][i].asistencias;
+            horaMayorAsistencias = i;
+        }
+    }
+    cout << "El mayor numero de asistencias para el aula " << aula << " es: " << mayorAsistencias << " a las " <<
+        horaMayorAsistencias << " horas" << endl;
+}
+
+void consultarHoraConMenorAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
+{
+    cout << "Consultando hora con menor asistencia en un aula..." << endl;
+    int aula;
+    cout << "Ingrese aula a buscar: ";
+    cin >> aula;
+    int menorAsistencias = MatrizAsistencias[aula][0].asistencias;
+    int horaMenorAsistencias = 0;
+    for (int i = 1; i < HORAS_DIA; i++)
+    {
+        if (MatrizAsistencias[aula][i].asistencias < menorAsistencias)
+        {
+            menorAsistencias = MatrizAsistencias[aula][i].asistencias;
+            horaMenorAsistencias = i;
+        }
+    }
+    cout << "El menor numero de asistencias para el aula " << aula << " es: " << menorAsistencias << " a las " <<
+        horaMenorAsistencias << " horas" << endl;
+}
+
+void modificarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
+{
+    cout << "Modificando asistencia en una hora para un aula..." << endl;
+    int aula, asistencias, dia, hora;
+    cout << "Ingrese aula: ";
+    cin >> aula;
+    cout << "Ingrese hora del dia: ";
+    cin >> hora;
+    cout << "Ingrese dia: ";
+    cin >> dia;
+    cout << "Ingrese estudiantes que asistieron: ";
     cin >> asistencias;
-
-    cout << "Ingrese el dia (1 - 31): ";
-    cin >> dia;
-
-    if (aula >= 0 && aula < aulas && hora >= 0 && hora < horas && dia >= 1 && dia <= 31)
-    {
-        Asistencias[aula][hora].asistencias = asistencias;
-        Asistencias[aula][hora].dia = dia;
-        Asistencias[aula][hora].hora = hora;
-    }
-    else
-    {
-        cout << "Aula, hora o dia no validos" << endl;
-    }
+    MatrizAsistencias[aula][hora].asistencias = asistencias;
+    MatrizAsistencias[aula][hora].dia = dia;
+    MatrizAsistencias[aula][hora].hora = hora;
+    cout << "Asistencia modificada correctamente" << endl;
 }
 
-void consultarAsistenciaEspecifica(RegistroAsistencia** Asistencias, int aulas, int horas)
+void consultarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
-    int aula;
-    int hora;
-
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
+    cout << "Consultando asistencia..." << endl;
+    int aula, hora;
+    cout << "Ingrese aula: ";
     cin >> aula;
-
-    cout << "Ingrese la hora (0 - " << horas - 1 << "): ";
+    cout << "Ingrese hora del dia: ";
     cin >> hora;
-
-    if (aula >= 0 && aula < aulas && hora >= 0 && hora < horas)
-    {
-        cout << "El numero de asistencias en el aula " << aula << " a la hora " << hora << " es: " << Asistencias[aula][
-            hora].asistencias << endl;
-    }
-    else
-    {
-        cout << "Aula o hora no validos" << endl;
-    }
+    cout << "Asistencias en el aula " << aula << " a las " << hora << " horas: " << MatrizAsistencias[aula][hora].
+        asistencias << endl;
 }
 
-void calcularTotalAsistenciasManana(RegistroAsistencia** Asistencias, int aulas)
+void calcularTotalDeAsistenciasParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
+    cout << "Calculando total de asistencias en la manana..." << endl;
     int aula;
-    int dia;
-
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
+    cout << "Ingrese aula: ";
     cin >> aula;
-
-    cout << "Ingrese el dia (1 - 31): ";
-    cin >> dia;
-
-    if (aula >= 0 && aula < aulas && dia >= 1 && dia <= 31)
+    int totalAsistencias = 0;
+    for (int i = 6; i <= 11; i++)
     {
-        int totalAsistenciasManana = 0;
-
-        for (int i = 6; i < 12; ++i)
-        {
-            totalAsistenciasManana += Asistencias[aula][i].asistencias;
-        }
-
-        cout << "El total de asistencias en la mañana en el aula " << aula << " es: " << totalAsistenciasManana << endl;
+        totalAsistencias += MatrizAsistencias[aula][i].asistencias;
     }
-    else
-    {
-        cout << "Aula o dia no validos" << endl;
-    }
+    cout << "Total de asistencias en la manana para el aula " << aula << ": " <<
+        totalAsistencias << endl;
 }
 
-void mostrarRegistrosAsistenciaOrdenDescendente(RegistroAsistencia** Asistencias, int aulas, int horas)
+void mostrarRegistrosDescendentesParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
+    cout << "Mostrando registros de asistencia en orden ascendente..." << endl;
     int aula;
-
-    cout << "Ingrese el aula (0 - " << aulas - 1 << "): ";
+    cout << "Ingrese aula: ";
     cin >> aula;
-
-    if (aula >= 0 && aula < aulas)
+    for (int i = 0; i < HORAS_DIA - 1; i++)
     {
-        // Crear un arreglo de registros de asistencia
-        RegistroAsistencia* registros = new RegistroAsistencia[horas];
-
-        // Copiar los registros de asistencia del aula al arreglo
-        for (int i = 0; i < horas; ++i)
+        for (int j = i + 1; j < HORAS_DIA; j++)
         {
-            registros[i] = Asistencias[aula][i];
-        }
-
-        // Ordenar los registros de asistencia en orden descendente
-        for (int i = 0; i < horas - 1; ++i)
-        {
-            for (int j = i + 1; j < horas; ++j)
+            if (MatrizAsistencias[aula][i].asistencias < MatrizAsistencias[aula][j].asistencias)
             {
-                if (registros[i].asistencias < registros[j].asistencias)
-                {
-                    swap(registros[i], registros[j]);
-                }
+                swap(MatrizAsistencias[aula][i], MatrizAsistencias[aula][j]);
             }
         }
-
-        // Mostrar los registros de asistencia en orden descendente
-        for (int i = 0; i < horas; ++i)
-        {
-            cout << "Hora: " << registros[i].hora << " - Asistencias: " << registros[i].asistencias << endl;
-        }
-
-        // Liberar memoria
-        delete[] registros;
     }
-    else
-    {
-        cout << "Aula no valida" << endl;
-    }
+    mostrarRegistros(MatrizAsistencias);
 }
 
 void problema1()
 {
-    int aulas = 5;
-    int horas = 24;
-    int opcion;
+    RegistroAsistencia MatrizAsistencias[AULAS][HORAS_DIA];
 
-    RegistroAsistencia** Asistencias = new RegistroAsistencia*[aulas];
-
-    for (int i = 0; i < aulas; ++i)
-    {
-        Asistencias[i] = new RegistroAsistencia[horas];
-    }
-
-    // Crear matriz de asistencias
-    for (int i = 0; i < aulas; ++i)
-    {
-        for (int j = 0; j < horas; ++j)
-        {
-            Asistencias[i][j].asistencias = 0;
-            Asistencias[i][j].dia = 0;
-            Asistencias[i][j].hora = 0;
-        }
-    }
-
-    // Menu de opciones
-    do
-    {
-        mostrarMenuOpciones();
-        cout << "Ingrese su opcion: ";
-        cin >> opcion;
-
-        switch (opcion)
-        {
-        case 1:
-            registrarAsistencia(Asistencias, aulas, horas);
-            break;
-        case 2:
-            consultarHoraMayorAsistencia(Asistencias, aulas, horas);
-            break;
-        case 3:
-            consultarHoraMenorAsistencia(Asistencias, aulas, horas);
-            break;
-        case 4:
-            modificarAsistencia(Asistencias, aulas, horas);
-            break;
-        case 5:
-            consultarAsistenciaEspecifica(Asistencias, aulas, horas);
-            break;
-        case 6:
-            calcularTotalAsistenciasManana(Asistencias, aulas);
-            break;
-        case 7:
-            mostrarRegistrosAsistenciaOrdenDescendente(Asistencias, aulas, horas);
-            break;
-        case 8:
-            cout << "Saliendo..." << endl;
-            break;
-        }
-    }
-    while (opcion != 8);
-
-    // Liberar memoria
-    for (int i = 0; i < aulas; ++i)
-    {
-        delete[] Asistencias[i];
-    }
+    inicializarMatriz(MatrizAsistencias); // Inicializar matriz
+    mostrarRegistros(MatrizAsistencias); // Mostrar registros
+    registrarAsistencia(MatrizAsistencias); // Registrar asistencia
+    registrarAsistencia(MatrizAsistencias); // Registrar asistencia
+    mostrarRegistros(MatrizAsistencias); // Mostrar registros
+    consultarHoraConMayorAsistencia(MatrizAsistencias);
+    consultarHoraConMenorAsistencia(MatrizAsistencias);
+    modificarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias);
+    mostrarRegistros(MatrizAsistencias);
+    consultarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias);
+    calcularTotalDeAsistenciasParaUnAula(MatrizAsistencias);
+    mostrarRegistrosDescendentesParaUnAula(MatrizAsistencias);
 }

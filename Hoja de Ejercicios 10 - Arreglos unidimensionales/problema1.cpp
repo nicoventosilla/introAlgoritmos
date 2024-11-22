@@ -4,55 +4,59 @@
 
 #include "problema1.h"
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
-void ingresarNotas(int* notas)
+/*
+* En el curso de Matemática Discreta, se toman 6 evaluaciones de las cuales se elimina la menor nota
+antes de hallar el promedio. Considere que sólo se elimina la menor una sola vez, es decir por
+ejemplo si la menor nota estuviese duplicada o triplicada, sólo se eliminará una de ellas.
+Se le pide que elabore un programa en C++ que permita leer las calificaciones de un alumno,
+almacenarlas en un arreglo y finalmente calcule e imprima el promedio de notas del alumno.
+Ejemplo 1:
+Si las notas que se ingresan fueran: 13, 20, 14, 12, 16, 17
+La nota que no se considera en el promedio seria 12
+Ejemplo 2:
+Si las notas que se ingresan fueran: 15, 16, 11, 17, 11, 19
+La nota que no se considera en el promedio seria el 11 (nota que esta duplicada, sólo se elimina un
+sólo 11)
+ */
+
+void ingresarNotas(int Notas[], int cantidadNotas)
 {
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < cantidadNotas; i++)
     {
-        cout << "Ingrese la nota " << i + 1 << ": ";
-        cin >> notas[i];
+        cout << "Ingrese la nota " << i << ": ";
+        cin >> Notas[i];
     }
 }
 
-void ordenarNotas(int* notas) // ordena de menor a mayor
+void ordenarNotas(int Notas[], int cantidadNotas) // ordena de menor a mayor
 {
-    for (int i = 0; i < 6 - 1; i++) // se resta 1 para no comparar el ultimo elemento
-    {
-        for (int j = i + 1; j < 6; j++) // se empieza desde i + 1 para no comparar el mismo elemento
-        {
-            if (notas[i] > notas[j]) // si la nota en la posicion i es mayor a la nota en la posicion j
-            {
-                int temp = notas[i]; // se guarda la nota en una variable temporal
-                notas[i] = notas[j]; // se intercambian las notas
-                notas[j] = temp; // se asigna la nota guardada en la variable temporal
-            }
-        }
-    }
+    sort(Notas, Notas + cantidadNotas);
 }
 
-double calcularPromedio(int* notas)
+double calcularPromedio(int Notas[], int cantidadNotas)
 {
-    double promedio = 0.0; // se inicializa en 0.0 para evitar errores
-
-    for (int i = 1; i < 6; i++) // se empieza desde 1 para no considerar la nota mas baja
+    double suma = 0.0;
+    for (int i = 0; i < cantidadNotas; i++)
     {
-        promedio += notas[i]; // se suman las notas
+        suma += Notas[i];
     }
-
-    promedio /= 5; // se divide entre 5 para obtener el promedio
-
-    return promedio;
+    return suma / cantidadNotas;
 }
 
 void problema1()
 {
-    int* notas = new int[6]; // arreglo de 6 elementos
-    double promedio = 0.0; // se inicializa en 0.0 para evitar errores
+    int cantidadNotas = 6; // Cantidad de notas
+    double promedio = 0.0;
 
-    ingresarNotas(notas);
-    ordenarNotas(notas);
-    promedio = calcularPromedio(notas);
+    int Notas[cantidadNotas]; // Arreglo de 6 elementos
+
+    ingresarNotas(Notas, cantidadNotas);
+    ordenarNotas(Notas, cantidadNotas);
+    promedio = calcularPromedio(Notas, cantidadNotas);
 
     cout << "El promedio de las notas es: " << promedio << endl;
 }

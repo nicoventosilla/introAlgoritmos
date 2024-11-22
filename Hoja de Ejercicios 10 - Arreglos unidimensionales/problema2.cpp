@@ -4,104 +4,101 @@
 
 #include "problema2.h"
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
-void ingresarPesos(int* pesosClientes, int cantidadClientes)
+/*
+* El gerente del gimnasio Fitness Gym, desea contar con un programa en C++ que permita leer los
+pesos de N clientes, almacenarlos en un vector y luego le indique los siguientes datos estadísticos:
+ El peso promedio.
+ El peso de la persona que pesa más.
+ El número de personas cuya contextura es delgada (si su peso es menor a 53 kilos)
+ El número de personas cuya contextura es mediana (si su peso esta entre 53 y 60 kilos inclusive)
+ El número de personas cuya contextura es gruesa (si su peso es mayor a 60 kilos)
+ */
+
+void ingresarPesos(int Pesos[], int cantidadClientes)
 {
     for (int i = 0; i < cantidadClientes; i++)
     {
-        cout << "Ingrese el peso del cliente " << i + 1 << ": ";
-        cin >> pesosClientes[i];
+        cout << "Ingrese peso del cliente " << i << " : ";
+        cin >> Pesos[i];
     }
+    cout << endl;
 }
 
-void ordenarPesos(int* pesosClientes, int cantidadClientes) // Ordenar de menor a mayor
+void ordenarPesos(int Pesos[], int cantidadClientes) // Ordenar de menor a mayor
 {
-    for (int j = 0; j < cantidadClientes - 1; j++)
+    sort(Pesos, Pesos + cantidadClientes);
+}
+
+void mostrarPesos(int Pesos[], int cantidadClientes)
+{
+    for (int i = 0; i < cantidadClientes; i++)
     {
-        for (int i = j + 1; i < cantidadClientes; i++)
+        cout << Pesos[i] << " ";
+    }
+    cout << endl;
+}
+
+void calcularPromedioPesos(int Pesos[], int cantidadClientes)
+{
+    double suma = 0.0;
+    for (int i = 0; i < cantidadClientes; i++)
+    {
+        suma += Pesos[i];
+    }
+    cout << "El promedio de pesos es: " << suma / cantidadClientes << endl;
+}
+
+void personaMasPesada(int Pesos[], int cantidadClientes)
+{
+    cout << "La persona mas pesada pesa: " << Pesos[cantidadClientes - 1] << endl;
+}
+
+void cantidadPersonasContexturaDelgada(int Pesos[], int cantidadClientes)
+{
+    int cantidadPersonasDelgadas = 0;
+    for (int i = 0; i < cantidadClientes; i++)
+    {
+        if (Pesos[i] < 53)
         {
-            if (pesosClientes[j] > pesosClientes[i])
-            {
-                int temp = pesosClientes[j];
-                pesosClientes[j] = pesosClientes[i];
-                pesosClientes[i] = temp;
-            }
+            cantidadPersonasDelgadas++;
         }
     }
+    cout << "Cantidad de personas con contextura delgada: " << cantidadPersonasDelgadas << endl;
 }
 
-void calcularPromedio(int* pesosClientes, int cantidadClientes)
+void cantidadPersonasContexturaMediana(int Pesos[], int cantidadClientes)
 {
-    double promedio = 0.0;
-
+    int cantidadPersonasMedianas = 0;
     for (int i = 0; i < cantidadClientes; i++)
     {
-        promedio += pesosClientes[i];
-    }
-
-    promedio /= cantidadClientes;
-
-    cout << "\nEl promedio de los pesos de los clientes es: " << promedio << endl;
-}
-
-void personaMasPesada(int* pesosClientes, int cantidadClientes)
-{
-    cout << "La persona que mas pesa es: " << pesosClientes[cantidadClientes - 1] << endl;
-}
-
-void cantidadPersonasContexturaDelgada(int* pesosClientes, int cantidadClientes)
-{
-    int cantidadDelgadas = 0;
-
-    for (int i = 0; i < cantidadClientes; i++)
-    {
-        if (pesosClientes[i] < 53)
+        if (Pesos[i] >= 53 && Pesos[i] <= 60)
         {
-            cantidadDelgadas++;
+            cantidadPersonasMedianas++;
         }
     }
-
-    cout << "Cantidad de personas cuya contextura es delgada (si su peso es menor a 53 kilos): " << cantidadDelgadas <<
-        endl;
+    cout << "Cantidad de personas con contextura mediana: " << cantidadPersonasMedianas << endl;
 }
 
-void cantidadPersonasContexturaMediana(int* pesosClientes, int cantidadClientes)
+void cantidadPersonasContexturaGruesa(int Pesos[], int cantidadClientes)
 {
-    int cantidadMedianas = 0;
-
+    int cantidadPersonasGruesas = 0;
     for (int i = 0; i < cantidadClientes; i++)
     {
-        if (pesosClientes[i] >= 53 && pesosClientes[i] <= 60)
+        if (Pesos[i] > 60)
         {
-            cantidadMedianas++;
+            cantidadPersonasGruesas++;
         }
     }
-
-    cout <<
-        "Cantidad de personas cuya contextura es mediana (si su peso es mayor o igual a 53 kilos y menor o igual a 60 kilos): "
-        << cantidadMedianas << endl;
-}
-
-void cantidadPersonasContexturaGruesa(int* pesosClientes, int cantidadClientes)
-{
-    int cantidadGruesas = 0;
-
-    for (int i = 0; i < cantidadClientes; i++)
-    {
-        if (pesosClientes[i] > 60)
-        {
-            cantidadGruesas++;
-        }
-    }
-
-    cout << "Cantidad de personas cuya contextura es gruesa (si su peso es mayor a 60 kilos): " << cantidadGruesas <<
-        endl;
+    cout << "Cantidad de personas con contextura gruesa: " << cantidadPersonasGruesas << endl;
 }
 
 void problema2()
 {
-    int cantidadClientes;
+    int cantidadClientes; // Cantidad de clientes
 
     do
     {
@@ -112,23 +109,14 @@ void problema2()
     }
     while (cantidadClientes < 1);
 
-    int* pesosClientes = new int[cantidadClientes];
+    int Pesos[cantidadClientes]; // Arreglo de pesos
 
-    ingresarPesos(pesosClientes, cantidadClientes);
-    ordenarPesos(pesosClientes, cantidadClientes);
-
-    cout << "Pesos de los clientes ordenados de menor a mayor: ";
-    for (int i = 0; i < cantidadClientes; i++)
-    {
-        cout << pesosClientes[i] << " ";
-    }
-
-    calcularPromedio(pesosClientes, cantidadClientes);
-    personaMasPesada(pesosClientes, cantidadClientes);
-    cantidadPersonasContexturaDelgada(pesosClientes, cantidadClientes);
-    cantidadPersonasContexturaMediana(pesosClientes, cantidadClientes);
-    cantidadPersonasContexturaGruesa(pesosClientes, cantidadClientes);
-
-    // Liberar memoria
-    delete[] pesosClientes;
+    ingresarPesos(Pesos, cantidadClientes); // Ingresar pesos
+    ordenarPesos(Pesos, cantidadClientes); // Ordenar pesos
+    mostrarPesos(Pesos, cantidadClientes); // Mostrar pesos
+    calcularPromedioPesos(Pesos, cantidadClientes); // Calcular promedio de pesos
+    personaMasPesada(Pesos, cantidadClientes); // Persona mas pesada
+    cantidadPersonasContexturaDelgada(Pesos, cantidadClientes); // Cantidad de personas con contextura delgada
+    cantidadPersonasContexturaMediana(Pesos, cantidadClientes); // Cantidad de personas con contextura mediana
+    cantidadPersonasContexturaGruesa(Pesos, cantidadClientes); // Cantidad de personas con contextura gruesa
 }
