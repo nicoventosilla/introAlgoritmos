@@ -138,7 +138,7 @@ void modificarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias
     int aula, asistencias, dia, hora;
     cout << "Ingrese aula: ";
     cin >> aula;
-    cout << "Ingrese hora del dia: ";
+    cout << "Ingrese hora: ";
     cin >> hora;
     cout << "Ingrese dia: ";
     cin >> dia;
