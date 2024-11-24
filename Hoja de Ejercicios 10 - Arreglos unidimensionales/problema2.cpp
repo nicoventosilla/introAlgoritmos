@@ -18,7 +18,7 @@ pesos de N clientes, almacenarlos en un vector y luego le indique los siguientes
  El número de personas cuya contextura es gruesa (si su peso es mayor a 60 kilos)
  */
 
-void ingresarPesos(int Pesos[], int cantidadClientes)
+void ingresarPesos(int Pesos[], int cantidadClientes) // Ingresar los pesos
 {
     for (int i = 0; i < cantidadClientes; i++)
     {
@@ -30,10 +30,10 @@ void ingresarPesos(int Pesos[], int cantidadClientes)
 
 void ordenarPesos(int Pesos[], int cantidadClientes) // Ordenar de menor a mayor
 {
-    sort(Pesos, Pesos + cantidadClientes);
+    sort(Pesos, Pesos + cantidadClientes); // Ordena el arreglo de menor a mayor
 }
 
-void mostrarPesos(int Pesos[], int cantidadClientes)
+void mostrarPesos(int Pesos[], int cantidadClientes) // Mostrar pesos
 {
     for (int i = 0; i < cantidadClientes; i++)
     {
@@ -42,7 +42,7 @@ void mostrarPesos(int Pesos[], int cantidadClientes)
     cout << endl;
 }
 
-void calcularPromedioPesos(int Pesos[], int cantidadClientes)
+void calcularPromedioPesos(int Pesos[], int cantidadClientes) // Calcular promedio de pesos
 {
     double suma = 0.0;
     for (int i = 0; i < cantidadClientes; i++)
@@ -52,12 +52,12 @@ void calcularPromedioPesos(int Pesos[], int cantidadClientes)
     cout << "El promedio de pesos es: " << suma / cantidadClientes << endl;
 }
 
-void personaMasPesada(int Pesos[], int cantidadClientes)
+void personaMasPesada(int Pesos[], int cantidadClientes) // Persona mas pesada
 {
     cout << "La persona mas pesada pesa: " << Pesos[cantidadClientes - 1] << endl;
 }
 
-void cantidadPersonasContexturaDelgada(int Pesos[], int cantidadClientes)
+void cantidadPersonasContexturaDelgada(int Pesos[], int cantidadClientes) // Cantidad de personas con contextura delgada
 {
     int cantidadPersonasDelgadas = 0;
     for (int i = 0; i < cantidadClientes; i++)
@@ -70,7 +70,7 @@ void cantidadPersonasContexturaDelgada(int Pesos[], int cantidadClientes)
     cout << "Cantidad de personas con contextura delgada: " << cantidadPersonasDelgadas << endl;
 }
 
-void cantidadPersonasContexturaMediana(int Pesos[], int cantidadClientes)
+void cantidadPersonasContexturaMediana(int Pesos[], int cantidadClientes) // Cantidad de personas con contextura mediana
 {
     int cantidadPersonasMedianas = 0;
     for (int i = 0; i < cantidadClientes; i++)
@@ -83,7 +83,7 @@ void cantidadPersonasContexturaMediana(int Pesos[], int cantidadClientes)
     cout << "Cantidad de personas con contextura mediana: " << cantidadPersonasMedianas << endl;
 }
 
-void cantidadPersonasContexturaGruesa(int Pesos[], int cantidadClientes)
+void cantidadPersonasContexturaGruesa(int Pesos[], int cantidadClientes) // Cantidad de personas con contextura gruesa
 {
     int cantidadPersonasGruesas = 0;
     for (int i = 0; i < cantidadClientes; i++)
@@ -100,6 +100,7 @@ void problema2()
 {
     int cantidadClientes; // Cantidad de clientes
 
+    // Ingresar cantidad de clientes
     do
     {
         cout << "Ingrese numero de clientes: ";

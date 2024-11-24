@@ -26,12 +26,15 @@ int nmedallas;
 struct atleta ats[30];
 */
 
+
+// Estructura para almacenar los datos de una persona
 struct datos
 {
     char nombre[40];
     char pais[25];
 };
 
+// Estructura para almacenar los datos de un atleta
 struct atleta
 {
     char deporte[30];
@@ -39,7 +42,7 @@ struct atleta
     int nmedallas;
 };
 
-void ingresarDatos(atleta ats[], int numero_atletas)
+void ingresarDatos(atleta ats[], int numero_atletas) // Ingresar los datos de los atletas
 {
     for (int i = 0; i < numero_atletas; i++)
     {
@@ -56,17 +59,18 @@ void ingresarDatos(atleta ats[], int numero_atletas)
     }
 }
 
-void atletaConMasMedallas(atleta ats[], int numero_atletas)
+void atletaConMasMedallas(atleta ats[], int numero_atletas) // Atleta con mas medallas
 {
-    int indice_mayor_medallas = 0;
-    for (int i = 1; i < numero_atletas; i++)
+    int indice_mayor_medallas = 0; // Indice del atleta con mayor numero de medallas
+    for (int i = 1; i < numero_atletas; i++) // Buscamos el atleta con mayor numero de medallas
     {
-        if (ats[i].nmedallas > ats[indice_mayor_medallas].nmedallas)
+        if (ats[i].nmedallas > ats[indice_mayor_medallas].nmedallas) // Si encontramos un atleta con mayor numero de medallas
         {
-            indice_mayor_medallas = i;
+            indice_mayor_medallas = i; // Actualizamos el indice
         }
     }
 
+    // Mostramos los datos del atleta con mayor numero de medallas
     cout << "El atleta con mayor numero de medallas es:" << endl;
     cout << "Nombre: " << ats[indice_mayor_medallas].pers.nombre << endl;
     cout << "Pais: " << ats[indice_mayor_medallas].pers.pais << endl;

@@ -24,6 +24,7 @@ encuesta.
 Recuerde que la aplicación deberá realizar las validaciones necesarias
  */
 
+// Estructura para almacenar los datos de un encuestado
 struct Encuestado
 {
     int nivel_aprobacion;
@@ -31,15 +32,15 @@ struct Encuestado
     char nivel_socioeconomico;
 };
 
-int generarAleatorio(int min, int max)
+int generarAleatorio(int min, int max) // Generar un numero aleatorio entre min y max
 {
-    return rand() % (max - min + 1) + min;
+    return rand() % (max - min + 1) + min; // Formula para generar un numero aleatorio entre min y max
 }
 
-char generarAleatorioSocioeconomico()
+char generarAleatorioSocioeconomico() // Generar un nivel socioeconomico aleatorio
 {
-    char niveles_socioeconomicos[] = {'A', 'B', 'C', 'D'};
-    return niveles_socioeconomicos[rand() % 4];
+    char niveles_socioeconomicos[] = {'A', 'B', 'C', 'D'}; // Niveles socioeconomicos
+    return niveles_socioeconomicos[rand() % 4]; // Seleccionamos un nivel socioeconomico aleatorio
 }
 
 void generarDatosEncuestados(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
@@ -47,14 +48,14 @@ void generarDatosEncuestados(Encuestado ArregloEncuestados[], int numero_persona
     cout << "Generando datos de encuestados..." << endl;
     for (int i = 0; i < numero_personas_encuestadas; i++)
     {
-        ArregloEncuestados[i].nivel_aprobacion = generarAleatorio(1, 5);
-        ArregloEncuestados[i].edad = generarAleatorio(18, 100);
-        ArregloEncuestados[i].nivel_socioeconomico = generarAleatorioSocioeconomico();
+        ArregloEncuestados[i].nivel_aprobacion = generarAleatorio(1, 5); // Generamos un nivel de aprobacion aleatorio
+        ArregloEncuestados[i].edad = generarAleatorio(18, 100); // Generamos una edad aleatoria
+        ArregloEncuestados[i].nivel_socioeconomico = generarAleatorioSocioeconomico(); // Generamos un nivel socioeconomico aleatorio
     }
     cout << endl;
 }
 
-void mostrarEncuestados(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
+void mostrarEncuestados(Encuestado ArregloEncuestados[], int numero_personas_encuestadas) // Mostrar los datos de los encuestados
 {
     for (int i = 0; i < numero_personas_encuestadas; i++)
     {
@@ -66,7 +67,7 @@ void mostrarEncuestados(Encuestado ArregloEncuestados[], int numero_personas_enc
     }
 }
 
-void mayorVotacion(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
+void mayorVotacion(Encuestado ArregloEncuestados[], int numero_personas_encuestadas) // Calcular el nivel de aprobacion con mayor votacion
 {
     int votos[5] = {0, 0, 0, 0, 0}; // Inicializamos el arreglo de votos en 0 para cada nivel de aprobacion
     for (int i = 0; i < numero_personas_encuestadas; i++) // Contamos los votos
@@ -89,14 +90,14 @@ void mayorVotacion(Encuestado ArregloEncuestados[], int numero_personas_encuesta
         mayor_votacion << " votos" << endl;
 }
 
-void nivelSocioeconomicoA(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
+void nivelSocioeconomicoA(Encuestado ArregloEncuestados[], int numero_personas_encuestadas) // Calcular cuantas personas del nivel socioeconomico A participaron de la encuesta
 {
     int personas_nivel_socioeconomico_a = 0;
-    for (int i = 0; i < numero_personas_encuestadas; i++)
+    for (int i = 0; i < numero_personas_encuestadas; i++) // Contamos las personas del nivel socioeconomico A
     {
-        if (ArregloEncuestados[i].nivel_socioeconomico == 'A')
+        if (ArregloEncuestados[i].nivel_socioeconomico == 'A') // Si encontramos una persona del nivel socioeconomico A
         {
-            personas_nivel_socioeconomico_a++;
+            personas_nivel_socioeconomico_a++; // Aumentamos el contador
         }
     }
 
@@ -104,14 +105,14 @@ void nivelSocioeconomicoA(Encuestado ArregloEncuestados[], int numero_personas_e
         personas_nivel_socioeconomico_a << endl;
 }
 
-void edadPersonaMasJoven(Encuestado ArregloEncuestados[], int numero_personas_encuestadas)
+void edadPersonaMasJoven(Encuestado ArregloEncuestados[], int numero_personas_encuestadas) // Calcular la edad de la persona mas joven que fue encuestada
 {
-    int edad_mas_joven = ArregloEncuestados[0].edad;
-    for (int i = 1; i < numero_personas_encuestadas; i++)
+    int edad_mas_joven = ArregloEncuestados[0].edad; // Inicializamos la edad mas joven con la primera persona encuestada
+    for (int i = 1; i < numero_personas_encuestadas; i++) // Buscamos la edad mas joven
     {
-        if (ArregloEncuestados[i].edad < edad_mas_joven)
+        if (ArregloEncuestados[i].edad < edad_mas_joven) // Si encontramos una edad mas joven
         {
-            edad_mas_joven = ArregloEncuestados[i].edad;
+            edad_mas_joven = ArregloEncuestados[i].edad; // Actualizamos la edad mas joven
         }
     }
 
@@ -131,7 +132,7 @@ void problema1()
     }
     while (numero_personas_encuestadas < 1 || numero_personas_encuestadas > 100);
 
-    Encuestado ArregloEncuestados[numero_personas_encuestadas];
+    Encuestado ArregloEncuestados[numero_personas_encuestadas]; // Arreglo de encuestados
 
     generarDatosEncuestados(ArregloEncuestados, numero_personas_encuestadas);
     mostrarEncuestados(ArregloEncuestados, numero_personas_encuestadas);

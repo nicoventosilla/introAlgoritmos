@@ -23,14 +23,15 @@ double x, y, z; // coordenadas de los puntos
 double distancia(puntesp p1, puntesp p2);
  */
 
+// Estructura para almacenar los datos de un punto en el espacio
 struct Puntesp
 {
     double x, y, z;
 };
 
-double distancia(Puntesp p1, Puntesp p2)
+double distancia(Puntesp p1, Puntesp p2) // Calcular la distancia entre dos puntos
 {
-    return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2));
+    return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2)); // Formula de distancia entre dos puntos
 }
 
 void problema5()

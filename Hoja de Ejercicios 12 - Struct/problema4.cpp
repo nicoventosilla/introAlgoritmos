@@ -15,6 +15,7 @@ Por tanto se pide: Realizar un programa en C++ que lea en un array de estructura
 trabajadores de la empresa y que imprima los datos del empleado con mayor y menor salario.
 */
 
+// Estructura para almacenar los datos de un empleado
 struct Empleado
 {
     string nombre;
@@ -22,7 +23,7 @@ struct Empleado
     float sueldo;
 };
 
-void ingresarDatos(Empleado empleados[], int numero_empleados)
+void ingresarDatos(Empleado empleados[], int numero_empleados) // Ingresar los datos de los empleados
 {
     for (int i = 0; i < numero_empleados; i++)
     {
@@ -37,19 +38,20 @@ void ingresarDatos(Empleado empleados[], int numero_empleados)
     }
 }
 
-void empleadoConMayorSueldo(Empleado ArrayEmpleados[], int numero_empleados)
+void empleadoConMayorSueldo(Empleado ArrayEmpleados[], int numero_empleados) // Empleado con mayor sueldo
 {
-    float mayor_sueldo = ArrayEmpleados[0].sueldo;
-    int index = 0;
-    for (int i = 1; i < numero_empleados; i++)
+    float mayor_sueldo = ArrayEmpleados[0].sueldo; // Suponemos que el primer empleado tiene el mayor sueldo
+    int index = 0; // Indice del empleado con mayor sueldo
+    for (int i = 1; i < numero_empleados; i++) // Buscamos el empleado con mayor sueldo
     {
-        if (ArrayEmpleados[i].sueldo > mayor_sueldo)
+        if (ArrayEmpleados[i].sueldo > mayor_sueldo) // Si encontramos un empleado con mayor sueldo
         {
-            mayor_sueldo = ArrayEmpleados[i].sueldo;
-            index = i;
+            mayor_sueldo = ArrayEmpleados[i].sueldo; // Actualizamos el mayor sueldo
+            index = i; // Actualizamos el indice
         }
     }
 
+    // Mostramos los datos del empleado con mayor sueldo
     cout << "Empleado con mayor sueldo: " << endl;
     cout << "Nombre: " << ArrayEmpleados[index].nombre << endl;
     cout << "Sexo: " << ArrayEmpleados[index].sexo << endl;
@@ -57,19 +59,20 @@ void empleadoConMayorSueldo(Empleado ArrayEmpleados[], int numero_empleados)
     cout << endl;
 }
 
-void empleadoConMenorSueldo(Empleado ArrayEmpleados[], int numero_empleados)
+void empleadoConMenorSueldo(Empleado ArrayEmpleados[], int numero_empleados) // Empleado con menor sueldo
 {
-    float menor_sueldo = ArrayEmpleados[0].sueldo;
-    int index = 0;
-    for (int i = 1; i < numero_empleados; i++)
+    float menor_sueldo = ArrayEmpleados[0].sueldo; // Suponemos que el primer empleado tiene el menor sueldo
+    int index = 0; // Indice del empleado con menor sueldo
+    for (int i = 1; i < numero_empleados; i++) // Buscamos el empleado con menor sueldo
     {
-        if (ArrayEmpleados[i].sueldo < menor_sueldo)
+        if (ArrayEmpleados[i].sueldo < menor_sueldo) // Si encontramos un empleado con menor sueldo
         {
-            menor_sueldo = ArrayEmpleados[i].sueldo;
-            index = i;
+            menor_sueldo = ArrayEmpleados[i].sueldo; // Actualizamos el menor sueldo
+            index = i; // Actualizamos el indice
         }
     }
 
+    // Mostramos los datos del empleado con menor sueldo
     cout << "Empleado con menor sueldo: " << endl;
     cout << "Nombre: " << ArrayEmpleados[index].nombre << endl;
     cout << "Sexo: " << ArrayEmpleados[index].sexo << endl;

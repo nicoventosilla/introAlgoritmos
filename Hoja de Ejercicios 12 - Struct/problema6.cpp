@@ -23,14 +23,14 @@ struct Triangulo
     double altura;
 };
 
-double area1(Cuadrado c)
+double area1(Cuadrado c) // Area de un cuadrado
 {
-    return c.lado * c.lado;
+    return c.lado * c.lado; // Lado al cuadrado
 }
 
-double area2(Triangulo t)
+double area2(Triangulo t) // Area de un triangulo
 {
-    return (t.base * t.altura) / 2;
+    return (t.base * t.altura) / 2; // Base por altura dividido entre 2
 }
 
 void problema6()

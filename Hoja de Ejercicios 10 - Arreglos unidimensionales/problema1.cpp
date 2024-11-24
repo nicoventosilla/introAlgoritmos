@@ -23,7 +23,7 @@ La nota que no se considera en el promedio seria el 11 (nota que esta duplicada,
 sólo 11)
  */
 
-void ingresarNotas(int Notas[], int cantidadNotas)
+void ingresarNotas(int Notas[], int cantidadNotas) // Ingresar las notas
 {
     for (int i = 0; i < cantidadNotas; i++)
     {
@@ -34,7 +34,7 @@ void ingresarNotas(int Notas[], int cantidadNotas)
 
 void ordenarNotas(int Notas[], int cantidadNotas) // ordena de menor a mayor
 {
-    sort(Notas, Notas + cantidadNotas);
+    sort(Notas, Notas + cantidadNotas); // Ordena el arreglo de menor a mayor
 }
 
 double calcularPromedio(int Notas[], int cantidadNotas)
