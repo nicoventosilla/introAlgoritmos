@@ -1,93 +1,96 @@
 #include "problema2.h"
 #include <iostream>
 #include <ctime>   // time
-#include <cstdlib>  // srand, rand
+#include <cstdlib> // srand, rand
+#include <cmath>  // pow
 
 using namespace std;
 
-int generarNumeroAleatorioBit(int min, int max) // Generar un numero aleatorio entre min y max
+// Generar un número aleatorio entre min y max
+int generarNumeroAleatorioBit(int min, int max)
 {
     return rand() % (max - min + 1) + min;
 }
 
-void Generar_Vector(int* Arreglo)
+// Generar un vector de bits aleatorios
+void Generar_Vector(int Arreglo[])
 {
-    for (int i = 0; i < 8; ++i)
+    for (int i = 0; i < 8; ++i) // Recorrer el arreglo
     {
-        Arreglo[i] = generarNumeroAleatorioBit(0, 1);
+        Arreglo[i] = generarNumeroAleatorioBit(0, 1); // Generar un número aleatorio entre 0 y 1
     }
 }
 
-void prende_apaga_bits(int* Arreglo) // Invierte los bits
+// Imprimir el arreglo
+void Imprimir_Arreglo(int Arreglo[])
 {
-    for (int i = 0; i < 8; ++i)
+    for (int i = 0; i < 8; ++i) // Recorrer el arreglo
     {
-        if (Arreglo[i] == 0)
+        cout << Arreglo[i] << " "; // Mostrar el arreglo
+    }
+    cout << endl;
+}
+
+// Invertir los bits del arreglo
+void prende_apaga_bits(int Arreglo[])
+{
+    for (int i = 0; i < 8; ++i) // Recorrer el arreglo
+    {
+        if (Arreglo[i] == 0) // Si el bit es 0
         {
-            Arreglo[i] = 1;
+            Arreglo[i] = 1; // Cambiarlo a 1
         }
-        else
+        else // Si el bit es 1
         {
-            Arreglo[i] = 0;
+            Arreglo[i] = 0; // Cambiarlo a 0
         }
     }
 }
 
-void intercambia_bits(int* Arreglo) // Intercambia los bits
+// Intercambiar los bits del arreglo
+void intercambia_bits(int Arreglo[])
 {
-    for (int i = 0; i < 8; i += 2)
+    for (int i = 0; i < 8; i += 2) // Recorrer el arreglo de 2 en 2
     {
-        swap(Arreglo[i], Arreglo[i + 1]);
+        swap(Arreglo[i], Arreglo[i + 1]); // Intercambiar los bits
     }
 }
 
-int convertir_a_decimal(int* Arreglo) // Convierte el arreglo de bits a decimal
+// Convertir el arreglo de bits a decimal
+int convertir_a_decimal(int Arreglo[])
 {
     int decimal = 0;
-
     for (int i = 0; i < 8; ++i)
     {
-        decimal = decimal * 2 + Arreglo[i];
+        // Multiplica el bit por 2 elevado a la posición del bit
+        decimal += Arreglo[i] * pow(2, 7 - i);
     }
     return decimal;
 }
 
-void problema2() // int main()
+// Función principal del problema 2
+void problema2()
 {
     srand(time(0)); // Semilla para generar números aleatorios
 
-    int* Arreglo = new int[8]; // Arreglo de 8 bits
+    int Arreglo[8]; // Arreglo de 8 bits en la pila
 
-    Generar_Vector(Arreglo); // Genera un vector de bits aleatorios
+    // Genera un vector de bits aleatorios
+    Generar_Vector(Arreglo);
 
-    // Imprime el arreglo original
-    cout << "Arreglo original: ";
-    for (int i = 0; i < 8; ++i)
-    {
-        cout << Arreglo[i] << " ";
-    }
-    cout << endl;
+    cout << "Arreglo de bits" << endl;
+    Imprimir_Arreglo(Arreglo);
 
-    // Invierte los bits
+    // Invierte los bits (0 -> 1, 1 -> 0)
     prende_apaga_bits(Arreglo);
+    cout << "Arreglo con bits invertidos" << endl;
+    Imprimir_Arreglo(Arreglo);
 
-    cout << "Arreglo con bits invertidos: ";
-    for (int i = 0; i < 8; ++i)
-    {
-        cout << Arreglo[i] << " ";
-    }
-    cout << endl;
-
-    // Intercambia los bits
+    // Intercambia los bits de dos en dos (0 1 -> 1 0)
     intercambia_bits(Arreglo);
-    cout << "Arreglo con bits intercambiados: ";
-    for (int i = 0; i < 8; ++i)
-    {
-        cout << Arreglo[i] << " ";
-    }
-    cout << endl;
+    cout << "Arreglo con bits intercambiados" << endl;
+    Imprimir_Arreglo(Arreglo);
 
-    // Convierte el arreglo de bits a decimal
-    int decimal = convertir_a_decimal(Arreglo);
-    cout << "Valor decimal: " << decimal << endl;
+    int decimal = convertir_a_decimal(Arreglo); // Convierte el arreglo de bits a decimal
+    cout << "Valor decimal: " << decimal << endl; // Imprime el valor decimal
 }

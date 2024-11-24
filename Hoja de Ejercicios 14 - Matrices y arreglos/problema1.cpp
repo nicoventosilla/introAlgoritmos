@@ -14,17 +14,17 @@ int generarNumeroAleatorio(int min, int max) // Generar un numero aleatorio entr
 
 void Generar_Mensaje(int* Mensajes, int longitud_mensaje) // Generar un mensaje aleatorio
 {
-    for (int i = 0; i < longitud_mensaje; ++i)
+    for (int i = 0; i < longitud_mensaje; ++i) // Recorrer el mensaje
     {
-        Mensajes[i] = generarNumeroAleatorio(0, 9);
+        Mensajes[i] = generarNumeroAleatorio(0, 9); // Generar un numero aleatorio entre 0 y 9
     }
 }
 
 void Imprimir_Mensaje(int* Mensajes, int longitud_mensaje) // Imprimir el mensaje
 {
-    for (int i = 0; i < longitud_mensaje; ++i)
+    for (int i = 0; i < longitud_mensaje; ++i) // Recorrer el mensaje
     {
-        cout << Mensajes[i] << " ";
+        cout << Mensajes[i] << " "; // Mostrar el mensaje
     }
     cout << endl;
 }
@@ -33,22 +33,25 @@ void Existe_capicua(int* Mensajes, int longitud_mensaje) // Verificar si existe 
 {
     bool esCapicua4 = (Mensajes[longitud_mensaje - 4] == Mensajes[longitud_mensaje - 1]) &&
         (Mensajes[longitud_mensaje - 3] == Mensajes[longitud_mensaje - 2]);
+    // Verificar si es capicua de 4 digitos (abcd)
 
     bool esCapicua3_der = (Mensajes[longitud_mensaje - 3] == Mensajes[longitud_mensaje - 1]) &&
-        (Mensajes[longitud_mensaje - 3] == Mensajes[longitud_mensaje - 2]);;
+        (Mensajes[longitud_mensaje - 3] == Mensajes[longitud_mensaje - 2]);
+    // Verificar si es capicua de 3 digitos (abc) en la derecha
 
     bool esCapicua3_izq = (Mensajes[longitud_mensaje - 4] == Mensajes[longitud_mensaje - 2]) &&
         (Mensajes[longitud_mensaje - 4] == Mensajes[longitud_mensaje - 3]);
+    // Verificar si es capicua de 3 digitos (abc) en la izquierda
 
-    if (esCapicua4 || esCapicua3_der || esCapicua3_izq)
+    if (esCapicua4 || esCapicua3_der || esCapicua3_izq) // Si es capicua de 4 digitos o 3 digitos
     {
-        contador_capicua++;
+        contador_capicua++; // Aumentar el contador de capicuas
 
-        cout << "Capicua Encontrado" << endl;
+        cout << "Capicua Encontrado" << endl; // Mostrar que se encontro un capicua
 
-        if (contador_capicua == 5)
+        if (contador_capicua == 5) // Si se encontraron 5 capicuas
         {
-            cout << "CONTACTO" << endl;
+            cout << "CONTACTO" << endl; // Mostrar CONTACTO
         }
     }
 }
@@ -57,21 +60,19 @@ void problema1() // int main()
 {
     srand(time(0)); // Semilla para generar numeros aleatorios
 
-    int mensajes_generados = 0;
+    int mensajes_generados = 0; // Contador de mensajes generados
 
-    while (contador_capicua < 5)
+    while (contador_capicua < 5) // Mientras no se encuentren 5 capicuas
     {
-        int longitud_mensaje = generarNumeroAleatorio(10, 15); // Generar un numero aleatorio entre 10 y 15
+        const int longitud_mensaje = generarNumeroAleatorio(10, 15); // Generar un numero aleatorio entre 10 y 15
 
-        int* Mensajes = new int[longitud_mensaje]; // Crear un arreglo dinamico
+        int Mensajes[longitud_mensaje]; // Crear un arreglo en la pila
 
-        mensajes_generados++;
-        cout << "Mensajes generados: " << mensajes_generados << endl;
+        mensajes_generados++; // Aumentar el contador de mensajes generados
+        cout << "Mensajes generados: " << mensajes_generados << endl; // Mostrar la cantidad de mensajes generados
 
         Generar_Mensaje(Mensajes, longitud_mensaje);
         Imprimir_Mensaje(Mensajes, longitud_mensaje);
         Existe_capicua(Mensajes, longitud_mensaje);
-
-        delete[] Mensajes; // Liberar memoria
     }
 }
