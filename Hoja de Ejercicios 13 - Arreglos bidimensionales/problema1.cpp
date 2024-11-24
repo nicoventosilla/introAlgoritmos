@@ -159,7 +159,7 @@ void determinarTiempoPromedioLlamadas(int Llamadas[50][3])
     }
 
     // Mostrar el tiempo promedio de llamadas de Ventas
-    cout << "Tiempo promedio de llamadas locales de Ventas: " << (float)minutosLocales / cantidadLocales << endl;
+    cout << "Tiempo promedio de llamadas locales de Ventas: " << (float)minutosLocales / cantidadLocales << endl; // Convertir a float para obtener decimales
     cout << "Tiempo promedio de llamadas a celular de Ventas: " << (float)minutosCelulares / cantidadCelulares << endl;
     cout << "Tiempo promedio de llamadas internacionales de Ventas: " << (float)minutosInternacionales /
         cantidadInternacionales << endl;
