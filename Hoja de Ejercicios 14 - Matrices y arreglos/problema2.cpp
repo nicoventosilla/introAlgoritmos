@@ -52,7 +52,7 @@ void intercambia_bits(int Arreglo[])
 {
     for (int i = 0; i < 8; i += 2) // Recorrer el arreglo de 2 en 2
     {
-        swap(Arreglo[i], Arreglo[i + 1]); // Intercambiar los bits
+        swap(Arreglo[i], Arreglo[i + 1]); // Intercambiar los bits (0 1 -> 1 0)
     }
 }
 
@@ -68,8 +68,7 @@ int convertir_a_decimal(int Arreglo[])
     return decimal;
 }
 
-// Función principal del problema 2
-void problema2()
+void problema2() // int main()
 {
     srand(time(0)); // Semilla para generar números aleatorios
 

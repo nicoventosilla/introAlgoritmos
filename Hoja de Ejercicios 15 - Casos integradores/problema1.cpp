@@ -5,6 +5,7 @@
 #include "problema1.h"
 #include <iostream>
 #include <cstdlib>
+#include <algorithm> // sort, reverse
 
 using namespace std;
 
@@ -33,79 +34,100 @@ llamado correcto de las funciones anteriores.
 
 const int MAX_ALUMNOS = 20;
 
-void GenerayListaParalelos(char* Vgripe, char* Vtos, int* Vpesos, int cantidad_alumnos)
+void GenerayListaParalelos(char Vgripe[], char Vtos[], int Vpesos[], int cantidad_alumnos)
 {
+    cout << "\nListado de alumnos:" << endl;
     for (int i = 0; i < cantidad_alumnos; i++)
     {
-        // Tuviste gripe en los ultimos 3 meses?
-        Vgripe[i] = (rand() % 2 == 0) ? 'S' : 'N';
+        Vgripe[i] = (rand() % 2 == 0) ? 'S' : 'N'; // Generar aleatoriamente 'S' o 'N'
+        Vtos[i] = (rand() % 2 == 0) ? 'S' : 'N'; // Generar aleatoriamente 'S' o 'N'
+        Vpesos[i] = (rand() % (60 - 30 + 1) + 30); // Generar aleatoriamente un peso entre 30 y 60
 
-        // Tuviste tos en los ultimos 3 meses?
-        Vtos[i] = (rand() % 2 == 0) ? 'S' : 'N';
-
-        // Cuanto pesas?
-        Vpesos[i] = (rand() % (60 - 30 + 1) + 30);
-
-        cout << "Alumno " << i + 1 << " Gripe(" << Vgripe[i] << "), Tos(" << Vtos[i] << "), Peso(" << Vpesos[i] << ")"
-            << endl;
+        cout << "Alumno " << i + 1 << endl;
+        cout << "Gripe: " << Vgripe[i] << endl;
+        cout << "Tos: " << Vtos[i] << endl;
+        cout << "Peso: " << Vpesos[i] << "kg" << endl;
+        cout << endl;
     }
 }
 
-double Porcentaje_gripe_tos(char* Vgripe, char* Vtos, int cantidad_alumnos)
+double Porcentaje_gripe_tos(char Vgripe[], char Vtos[], int cantidad_alumnos)
 {
     double total = 0.0;
-    double cantidad_alumnos_2 = cantidad_alumnos * 1.0;
 
-    for (int i = 0; i < cantidad_alumnos; i++)
+    for (int i = 0; i < cantidad_alumnos; i++) // Recorrer los alumnos
     {
-        if (Vgripe[i] == 'S' && Vtos[i] == 'S')
+        if (Vgripe[i] == 'S' && Vtos[i] == 'S') // Si tuvo gripe y tos
         {
-            total++;
+            total++; // Incrementar el total
         }
     }
 
-    return (total / cantidad_alumnos_2) * 100;
+    return (total / cantidad_alumnos) * 100; // Retornar el porcentaje
 }
 
-double Promedio_pesos(char* Vgripe, char* Vtos, int* Vpesos, int cantidad_alumnos)
+double Promedio_pesos(char Vgripe[], char Vtos[], int Vpesos[], int cantidad_alumnos)
 {
-    double pesos_total = 0.0;
-    double cantidad_con_enfermedad = 0.0;
+    double pesos_total = 0.0; // Suma de los pesos de los alumnos que tuvieron alguna enfermedad
+    int cantidad_con_enfermedad = 0; // Cantidad de alumnos que tuvieron alguna enfermedad
 
-    for (int i = 0; i < cantidad_alumnos; i++)
+    for (int i = 0; i < cantidad_alumnos; i++) // Recorrer los alumnos
     {
-        if (Vgripe[i] == 'S' || Vtos[i] == 'S')
+        if (Vgripe[i] == 'S' || Vtos[i] == 'S') // Si tuvo gripe o tos
         {
-            pesos_total += Vpesos[i];
-            cantidad_con_enfermedad++;
+            pesos_total += Vpesos[i]; // Sumar el peso
+            cantidad_con_enfermedad++; // Incrementar la cantidad
         }
     }
 
-    return (cantidad_con_enfermedad > 0) ? pesos_total / cantidad_con_enfermedad : 0.0;
+    if (cantidad_con_enfermedad > 0) // Si hay alumnos con enfermedad
+    {
+        return pesos_total / cantidad_con_enfermedad; // Retornar el promedio
+    }
+    else // Si no hay alumnos con enfermedad
+    {
+        return 0.0; // Retornar 0.0 si no hay alumnos con enfermedad
+    }
 }
 
-void Listado_ordenado(char* Vgripe, char* Vtos, int* Vpesos, int cantidad_alumnos)
+void Listado_ordenado(char Vgripe[], char Vtos[], int Vpesos[], int cantidad_alumnos) // Ordenar descendentemente por el peso
 {
-    for (int j = 0; j < cantidad_alumnos - 1; j++)
+    // Arreglo de indices para mantener la posición original de los alumnos
+    int indices[cantidad_alumnos];
+    for (int i = 0; i < cantidad_alumnos; i++)
     {
-        for (int i = j + 1; i < cantidad_alumnos; i++)
+        indices[i] = i + 1; // Inicializar los indices con los números de los alumnos
+    }
+
+    for (int i = 0; i < cantidad_alumnos - 1; i++) // Recorrer los alumnos (excepto el último)
+    {
+        for (int j = i + 1; j < cantidad_alumnos; j++) // Recorrer los alumnos (desde el siguiente al actual)
         {
-            if (Vpesos[j] < Vpesos[i])
+            if (Vpesos[i] < Vpesos[j]) // Si el peso del alumno i es menor que el peso del alumno j
             {
-                swap(Vpesos[j], Vpesos[i]);
+                swap(Vpesos[i], Vpesos[j]); // Intercambiar los pesos
+                swap(Vgripe[i], Vgripe[j]); // Intercambiar las gripes
+                swap(Vtos[i], Vtos[j]); // Intercambiar las toses
+                swap(indices[i], indices[j]); // Intercambiar los indices
             }
         }
     }
 
+    cout << "\nListado de alumnos ordenado descendentemente por el peso:" << endl;
     for (int i = 0; i < cantidad_alumnos; i++)
     {
-        cout << "Alumno " << i + 1 << " Gripe(" << Vgripe[i] << "), Tos(" << Vtos[i] << "), Peso(" << Vpesos[i] << ")"
-            << endl;
+        cout << "Alumno " << indices[i] << endl;
+        cout << "Gripe: " << Vgripe[i] << endl;
+        cout << "Tos: " << Vtos[i] << endl;
+        cout << "Peso: " << Vpesos[i] << "kg" << endl;
+        cout << endl;
     }
 }
 
-void problema1()
+void problema1() // int main()
 {
+    srand(time(0));
+
     int cantidad_alumnos;
 
     do
@@ -115,21 +137,15 @@ void problema1()
     }
     while (cantidad_alumnos < 1 || cantidad_alumnos > MAX_ALUMNOS);
 
-    char* Vgripe = new char[cantidad_alumnos];
-    char* Vtos = new char[cantidad_alumnos];
-    int* Vpesos = new int[cantidad_alumnos];
+    char Vgripe[MAX_ALUMNOS];
+    char Vtos[MAX_ALUMNOS];
+    int Vpesos[MAX_ALUMNOS];
 
-    // Funcion genera datos aleatorios
     GenerayListaParalelos(Vgripe, Vtos, Vpesos, cantidad_alumnos);
 
-    cout << "\nPorcentaje de alumnos que tuvieron gripe y tos simultaneamente: " << Porcentaje_gripe_tos(
+    cout << "Porcentaje de alumnos que tuvieron gripe y tos simultaneamente: " << Porcentaje_gripe_tos(
         Vgripe, Vtos, cantidad_alumnos) << "%" << endl;
     cout << "Promedio de pesos de alumnos que han tenido alguna enfermedad: " << Promedio_pesos(
         Vgripe, Vtos, Vpesos, cantidad_alumnos) << "kg." << endl;
-
     Listado_ordenado(Vgripe, Vtos, Vpesos, cantidad_alumnos);
-
-    delete[] Vgripe;
-    delete[] Vtos;
-    delete[] Vpesos;
 }

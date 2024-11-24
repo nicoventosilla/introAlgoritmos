@@ -78,7 +78,7 @@ void atletaConMasMedallas(atleta ats[], int numero_atletas) // Atleta con mas me
     cout << "Numero de medallas: " << ats[indice_mayor_medallas].nmedallas << endl;
 }
 
-void problema3()
+void problema3() // int main()
 {
     atleta ats[30];
     int numero_atletas;

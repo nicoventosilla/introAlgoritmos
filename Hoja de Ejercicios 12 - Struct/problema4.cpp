@@ -80,7 +80,7 @@ void empleadoConMenorSueldo(Empleado ArrayEmpleados[], int numero_empleados) // 
     cout << endl;
 }
 
-void problema4()
+void problema4() // int main()
 {
     int numero_empleados;
     cout << "Ingrese el numero de empleados: ";

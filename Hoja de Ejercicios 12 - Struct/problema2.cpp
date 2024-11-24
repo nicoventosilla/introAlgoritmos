@@ -138,9 +138,9 @@ void promedioGastoPorEdad(Persona ArregloPersonas[], int numero_personas) // Pro
     }
 }
 
-void problema2()
+void problema2() // int main()
 {
-    srand(time(0));
+    srand(time(0)); // Semilla para generar numeros aleatorios
 
     int numero_personas;
     cout << "Ingrese el numero de personas: ";

@@ -119,9 +119,9 @@ void edadPersonaMasJoven(Encuestado ArregloEncuestados[], int numero_personas_en
     cout << "La edad de la persona mas joven que fue encuestada fue: " << edad_mas_joven << endl;
 }
 
-void problema1()
+void problema1() // int main()
 {
-    srand(time(0));
+    srand(time(0)); // Semilla para generar numeros aleatorios
 
     int numero_personas_encuestadas;
 

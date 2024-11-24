@@ -4,7 +4,7 @@
 
 #include "hojaejercicios15.h"
 #include "problema1.h"
-// #include "problema2.h"
+#include "problema2.h"
 
 #include <iostream>
 using namespace std;
@@ -29,9 +29,9 @@ int main()
     case 1:
         problema1();
         break;
-        // case 2:
-        //     problema2();
-        //     break;
+    case 2:
+        problema2();
+        break;
     default:
         cout << "Opcion no valida" << endl;
         break;

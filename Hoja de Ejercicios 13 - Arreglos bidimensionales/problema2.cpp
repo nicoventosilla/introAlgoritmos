@@ -128,7 +128,7 @@ void mostrarGuaridaTopo(int Matriz[10][15])
     }
 }
 
-void problema2()
+void problema2() // int main()
 {
     srand(time(0)); // Inicializar la semilla para los numeros aleatorios
 

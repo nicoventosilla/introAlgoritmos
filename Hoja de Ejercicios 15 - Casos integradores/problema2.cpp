@@ -26,10 +26,13 @@ derecha, el patrón numérico en la matriz.
 Recuerde que la aplicación deberá validar el ingreso de datos.
 */
 
-void problema2()
+void problema2() // int main()
 {
+    srand(time(0));
+
     int N, patron, contador = 0;
 
+    // Solicitar el tamaño de la matriz
     do
     {
         cout << "Ingrese el tamano de la matriz (N): ";
@@ -37,23 +40,19 @@ void problema2()
     }
     while (N < 1 || N > 30);
 
-    int** Matriz = new int*[N]; // Reservando memoria para la matriz
+    int Matriz[N][N]; // Declarar la matriz de tamaño N x N
 
-    for (int i = 0; i < N; i++) // Reservando memoria para las columnas
-    {
-        Matriz[i] = new int[N];
-    }
-
-    // Generando la matriz de tamaño N
+    // Generar aleatoriamente los datos de la matriz
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            Matriz[i][j] = rand() % 10;
+            Matriz[i][j] = rand() % 10; // Generar aleatoriamente un digito entre 0 y 9
         }
     }
 
-    cout << "Matriz generada: " << endl;
+    // Mostrar la matriz
+    cout << "\nMatriz generada:" << endl;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -63,6 +62,7 @@ void problema2()
         cout << endl;
     }
 
+    // Solicitar el ingreso del patron numerico
     do
     {
         cout << "Ingrese el patron numerico (mayor que 99 y menor que 1000): ";
@@ -70,28 +70,23 @@ void problema2()
     }
     while (patron < 100 || patron > 999);
 
-    int digito1 = patron / 100;
-    int digito2 = (patron % 100) / 10;
-    int digito3 = patron % 10;
+    // Determinar los digitos del patron numerico
+    int digito1 = patron / 100; // Digito de las centenas
+    int digito2 = (patron % 100) / 10; // Digito de las decenas
+    int digito3 = patron % 10; // Digito de las unidades
 
+    // Determinar la cantidad de veces que se repite el patron numerico horizontalmente
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N - 2; j++)
         {
-            if (Matriz[i][j] == digito1 && Matriz[i][j + 1] == digito2 && Matriz[i][j + 2] == digito3)
+            if (Matriz[i][j] == digito1 && Matriz[i][j + 1] == digito2 && Matriz[i][j + 2] == digito3) // Si se encuentra el patron numerico
             {
-                contador++;
+                contador++; // Aumentar el contador
             }
         }
     }
 
-    cout << "El numero de veces que se repite el patron es " << contador;
-
-    // Liberando memoria de la matriz
-    for (int i = 0; i < N; i++)
-    {
-        delete[] Matriz[i];
-    }
-
-    delete[] Matriz;
+    // Mostrar la cantidad de veces que se repite el patron numerico horizontalmente
+    cout << "Cantidad de veces que se repite el patron numerico horizontalmente: " << contador << endl;
 }

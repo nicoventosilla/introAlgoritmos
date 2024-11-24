@@ -133,7 +133,7 @@ void mostrarMesMenoresVentas(int Ventas[12][5])
     cout << "El mes con menores ventas del anio es el mes " << mesMenorVentas << endl;
 }
 
-void problema3()
+void problema3() // int main()
 {
     // Inicializar la semilla para los numeros aleatorios
     srand(time(0));

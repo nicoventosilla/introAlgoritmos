@@ -33,7 +33,7 @@ double area2(Triangulo t) // Area de un triangulo
     return (t.base * t.altura) / 2; // Base por altura dividido entre 2
 }
 
-void problema6()
+void problema6() // int main()
 {
     Cuadrado c;
     Triangulo t;

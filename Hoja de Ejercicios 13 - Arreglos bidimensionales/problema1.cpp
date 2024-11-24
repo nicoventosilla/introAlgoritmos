@@ -165,9 +165,9 @@ void determinarTiempoPromedioLlamadas(int Llamadas[50][3])
         cantidadInternacionales << endl;
 }
 
-void problema1()
+void problema1() // int main()
 {
-    srand(time(0));
+    srand(time(0)); // Inicializar la semilla para los numeros aleatorios
 
     int Llamadas[50][3]; // 50 llamadas, 3 datos por llamada
 

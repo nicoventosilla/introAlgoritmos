@@ -34,7 +34,7 @@ double distancia(Puntesp p1, Puntesp p2) // Calcular la distancia entre dos punt
     return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2)); // Formula de distancia entre dos puntos
 }
 
-void problema5()
+void problema5() // int main()
 {
     Puntesp p1, p2;
     cout << "Ingrese las coordenadas del primer punto: " << endl;
