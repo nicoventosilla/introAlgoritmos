@@ -229,9 +229,9 @@ void mostrarRegistrosDescendentesParaUnAula(RegistroAsistencia MatrizAsistencias
     mostrarRegistros(MatrizAsistencias);
 }
 
-void problema1()
+void problema1() // int main()
 {
-    RegistroAsistencia MatrizAsistencias[AULAS][HORAS_DIA];
+    RegistroAsistencia MatrizAsistencias[AULAS][HORAS_DIA]; // Matriz de asistencias para cada aula y hora del día (3 aulas, 24 horas)
 
     inicializarMatriz(MatrizAsistencias); // Inicializar matriz
     mostrarRegistros(MatrizAsistencias); // Mostrar registros

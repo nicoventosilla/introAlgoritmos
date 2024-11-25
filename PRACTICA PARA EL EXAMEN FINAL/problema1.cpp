@@ -130,7 +130,7 @@ void listarMatriculasOrdenDescendente(int MatrizAsistencia[][2], int ArregloMatr
     mostrarMatrizAsistencia(MatrizAsistencia, ArregloMatriculasEstudiantes);
 }
 
-void problema1()
+void problema1() // int main()
 {
     srand(time(0));
 

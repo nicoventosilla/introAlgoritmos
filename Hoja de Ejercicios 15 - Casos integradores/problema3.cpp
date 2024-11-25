@@ -166,7 +166,7 @@ void determinarTiemposPromedio(int DatosVendedores[][3])
     cout << "Promedio de mensajes de texto: " << promedioMensajes << endl;
 }
 
-void problema3()
+void problema3() // int main()
 {
     srand(time(0)); // Inicializar la semilla del generador de números aleatorios
 

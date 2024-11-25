@@ -228,4 +228,6 @@ add_executable(hojaejercicios15 "Hoja de Ejercicios 15 - Casos integradores/hoja
         "Hoja de Ejercicios 15 - Casos integradores/problema3.h")
 add_executable(practicaexamenfinal "PRACTICA PARA EL EXAMEN FINAL/practicaexamenfinal.cpp" "PRACTICA PARA EL EXAMEN FINAL/practicaexamenfinal.h"
         "PRACTICA PARA EL EXAMEN FINAL/problema1.cpp"
-        "PRACTICA PARA EL EXAMEN FINAL/problema1.h")
+        "PRACTICA PARA EL EXAMEN FINAL/problema1.h"
+        "PRACTICA PARA EL EXAMEN FINAL/problema2.cpp"
+        "PRACTICA PARA EL EXAMEN FINAL/problema2.h")
