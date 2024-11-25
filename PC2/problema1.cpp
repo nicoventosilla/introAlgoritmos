@@ -35,17 +35,21 @@ using namespace std;
 * 7.	Mostrar registros de asistencia en orden descendente: Presentar todos los registros de asistencia de un aula, ordenados de mayor a menor, para ese día.
 */
 
+// Constantes
 const int AULAS = 3;
 const int HORAS_DIA = 23;
 
+// Estructura para almacenar los datos de un registro de asistencia
 struct RegistroAsistencia
 {
     int asistencias, dia, hora;
 };
 
+// Inicializar la matriz de asistencias con valores predeterminados (0)
 void inicializarMatriz(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Inicializando matriz..." << endl;
+
     for (int i = 0; i < AULAS; i++)
     {
         for (int j = 0; j < HORAS_DIA; j++)
@@ -58,6 +62,7 @@ void inicializarMatriz(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
     cout << endl;
 }
 
+// Mostrar los registros de asistencia en la matriz
 void mostrarRegistros(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     for (int i = 0; i < AULAS; i++)
@@ -74,9 +79,11 @@ void mostrarRegistros(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
     cout << endl;
 }
 
+// Realizar el seguimiento de la asistencia de estudiantes en varias aulas durante un día
 void registrarAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Registrando asistencia..." << endl;
+
     int aula, asistencias, dia, hora;
     cout << "Ingrese aula: ";
     cin >> aula;
@@ -86,28 +93,36 @@ void registrarAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
     cin >> dia;
     cout << "Ingrese hora del dia: ";
     cin >> hora;
+
     MatrizAsistencias[aula][hora].asistencias = asistencias;
     MatrizAsistencias[aula][hora].dia = dia;
     MatrizAsistencias[aula][hora].hora = hora;
+
     cout << "Asistencia registrada correctamente" << endl;
 }
 
+// Consultar la hora con mayor asistencia en un aula específica
 void consultarHoraConMayorAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Consultando hora con mayor asistencia en un aula..." << endl;
+
     int aula;
     cout << "Ingrese aula a buscar: ";
     cin >> aula;
-    int mayorAsistencias = MatrizAsistencias[aula][0].asistencias;
-    int horaMayorAsistencias = 0;
-    for (int i = 1; i < HORAS_DIA; i++)
+
+    int mayorAsistencias = MatrizAsistencias[aula][0].asistencias; // Inicializar con las asistencias de la hora 0
+    int horaMayorAsistencias = 0; // Inicializar con la hora 0
+
+    for (int i = 1; i < HORAS_DIA; i++) // Recorrer las horas del día (de 1 a 23)
     {
         if (MatrizAsistencias[aula][i].asistencias > mayorAsistencias)
+        // Si las asistencias son mayores que las actuales
         {
-            mayorAsistencias = MatrizAsistencias[aula][i].asistencias;
-            horaMayorAsistencias = i;
+            mayorAsistencias = MatrizAsistencias[aula][i].asistencias; // Actualizar las asistencias
+            horaMayorAsistencias = i; // Actualizar la hora
         }
     }
+
     cout << "El mayor numero de asistencias para el aula " << aula << " es: " << mayorAsistencias << " a las " <<
         horaMayorAsistencias << " horas" << endl;
 }
@@ -115,19 +130,24 @@ void consultarHoraConMayorAsistencia(RegistroAsistencia MatrizAsistencias[][HORA
 void consultarHoraConMenorAsistencia(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Consultando hora con menor asistencia en un aula..." << endl;
+
     int aula;
     cout << "Ingrese aula a buscar: ";
     cin >> aula;
-    int menorAsistencias = MatrizAsistencias[aula][0].asistencias;
-    int horaMenorAsistencias = 0;
-    for (int i = 1; i < HORAS_DIA; i++)
+
+    int menorAsistencias = MatrizAsistencias[aula][0].asistencias; // Inicializar con las asistencias de la hora 0
+    int horaMenorAsistencias = 0; // Inicializar con la hora 0
+
+    for (int i = 1; i < HORAS_DIA; i++) // Recorrer las horas del día (de 1 a 23)
     {
         if (MatrizAsistencias[aula][i].asistencias < menorAsistencias)
+        // Si las asistencias son menores que las actuales
         {
-            menorAsistencias = MatrizAsistencias[aula][i].asistencias;
-            horaMenorAsistencias = i;
+            menorAsistencias = MatrizAsistencias[aula][i].asistencias; // Actualizar las asistencias
+            horaMenorAsistencias = i; // Actualizar la hora
         }
     }
+
     cout << "El menor numero de asistencias para el aula " << aula << " es: " << menorAsistencias << " a las " <<
         horaMenorAsistencias << " horas" << endl;
 }
@@ -135,6 +155,7 @@ void consultarHoraConMenorAsistencia(RegistroAsistencia MatrizAsistencias[][HORA
 void modificarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Modificando asistencia en una hora para un aula..." << endl;
+
     int aula, asistencias, dia, hora;
     cout << "Ingrese aula: ";
     cin >> aula;
@@ -144,6 +165,7 @@ void modificarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias
     cin >> dia;
     cout << "Ingrese estudiantes que asistieron: ";
     cin >> asistencias;
+
     MatrizAsistencias[aula][hora].asistencias = asistencias;
     MatrizAsistencias[aula][hora].dia = dia;
     MatrizAsistencias[aula][hora].hora = hora;
@@ -153,11 +175,13 @@ void modificarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias
 void consultarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Consultando asistencia..." << endl;
+
     int aula, hora;
     cout << "Ingrese aula: ";
     cin >> aula;
     cout << "Ingrese hora del dia: ";
     cin >> hora;
+
     cout << "Asistencias en el aula " << aula << " a las " << hora << " horas: " << MatrizAsistencias[aula][hora].
         asistencias << endl;
 }
@@ -165,14 +189,18 @@ void consultarAsistenciaEnUnaHoraParaUnAula(RegistroAsistencia MatrizAsistencias
 void calcularTotalDeAsistenciasParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Calculando total de asistencias en la manana..." << endl;
+
     int aula;
     cout << "Ingrese aula: ";
     cin >> aula;
+
     int totalAsistencias = 0;
-    for (int i = 6; i <= 11; i++)
+
+    for (int i = 6; i <= 11; i++) // Recorrer las horas de la mañana (de 6 a 11 horas)
     {
-        totalAsistencias += MatrizAsistencias[aula][i].asistencias;
+        totalAsistencias += MatrizAsistencias[aula][i].asistencias; // Sumar las asistencias de cada hora de la mañana
     }
+
     cout << "Total de asistencias en la manana para el aula " << aula << ": " <<
         totalAsistencias << endl;
 }
@@ -180,19 +208,24 @@ void calcularTotalDeAsistenciasParaUnAula(RegistroAsistencia MatrizAsistencias[]
 void mostrarRegistrosDescendentesParaUnAula(RegistroAsistencia MatrizAsistencias[][HORAS_DIA])
 {
     cout << "Mostrando registros de asistencia en orden ascendente..." << endl;
+
     int aula;
     cout << "Ingrese aula: ";
     cin >> aula;
+
+    // Ordenar los registros de asistencia en orden descendente por el número de asistencias
     for (int i = 0; i < HORAS_DIA - 1; i++)
     {
         for (int j = i + 1; j < HORAS_DIA; j++)
         {
+            // Si el registro actual tiene menos asistencias que el siguiente, intercambiarlos
             if (MatrizAsistencias[aula][i].asistencias < MatrizAsistencias[aula][j].asistencias)
             {
-                swap(MatrizAsistencias[aula][i], MatrizAsistencias[aula][j]);
+                swap(MatrizAsistencias[aula][i], MatrizAsistencias[aula][j]); // Intercambiar los registros
             }
         }
     }
+
     mostrarRegistros(MatrizAsistencias);
 }
 
@@ -203,13 +236,13 @@ void problema1()
     inicializarMatriz(MatrizAsistencias); // Inicializar matriz
     mostrarRegistros(MatrizAsistencias); // Mostrar registros
     registrarAsistencia(MatrizAsistencias); // Registrar asistencia
-    registrarAsistencia(MatrizAsistencias); // Registrar asistencia
+    registrarAsistencia(MatrizAsistencias); // Registrar asistencia nuevamente
     mostrarRegistros(MatrizAsistencias); // Mostrar registros
-    consultarHoraConMayorAsistencia(MatrizAsistencias);
-    consultarHoraConMenorAsistencia(MatrizAsistencias);
-    modificarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias);
-    mostrarRegistros(MatrizAsistencias);
-    consultarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias);
-    calcularTotalDeAsistenciasParaUnAula(MatrizAsistencias);
-    mostrarRegistrosDescendentesParaUnAula(MatrizAsistencias);
+    consultarHoraConMayorAsistencia(MatrizAsistencias); // Consultar hora con mayor asistencia
+    consultarHoraConMenorAsistencia(MatrizAsistencias); // Consultar hora con menor asistencia
+    modificarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias); // Modificar asistencia
+    mostrarRegistros(MatrizAsistencias); // Mostrar registros
+    consultarAsistenciaEnUnaHoraParaUnAula(MatrizAsistencias); // Consultar asistencia
+    calcularTotalDeAsistenciasParaUnAula(MatrizAsistencias); // Calcular total de asistencias en la mañana
+    mostrarRegistrosDescendentesParaUnAula(MatrizAsistencias); // Mostrar registros en orden descendente
 }

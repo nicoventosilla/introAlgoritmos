@@ -4,6 +4,9 @@
 
 #include "problema1.h"
 #include <iostream>
+#include <ctime> // Para time
+#include <cstdlib> // Para srand y rand
+#include <algorithm>
 
 using namespace std;
 
@@ -23,97 +26,124 @@ aleatoria.
 * - Liste los números de matrícula en orden descendente según la cantidad de días asistidos.
 */
 
-void problema1()
+const int CANT_ESTUDIANTES = 15;
+
+// Generar números de matrícula de los estudiantes
+void generarMatriculas(int ArregloMatriculasEstudiantes[])
 {
-    int estudiantes = 15;
-    int dias = 20;
-    int tareas = 10;
-
-    // Generar vector con los números de matrícula de los estudiantes
-    int* matriculas = new int[estudiantes];
-    for (int i = 0; i < estudiantes; ++i)
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
     {
-        matriculas[i] = 5001 + i;
+        ArregloMatriculasEstudiantes[i] = 5001 + i; // Número de matrícula (empezando en 5001)
     }
+}
 
-    // Generar matriz 15 x 2 con los días asistidos y el número de tareas entregadas
-    int** asistencias = new int*[estudiantes];
-    for (int i = 0; i < estudiantes; ++i)
+// Mostrar números de matrícula de los estudiantes
+void mostrarArregloMatriculas(int ArregloMatriculasEstudiantes[])
+{
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
     {
-        asistencias[i] = new int[2];
-        asistencias[i][0] = rand() % dias + 1;
-        asistencias[i][1] = rand() % tareas + 1;
-    }
-
-    // Mostrar vector con los números de matrícula de los estudiantes
-    cout << "Numeros de matricula de los estudiantes:" << endl;
-    for (int i = 0; i < estudiantes; ++i)
-    {
-        cout << matriculas[i] << " ";
+        cout << ArregloMatriculasEstudiantes[i] << " ";
     }
     cout << endl;
+}
 
-    // Mostrar matriz 15 x 2 con los días asistidos y el número de tareas entregadas
-    cout << "Dias asistidos y tareas entregadas de los estudiantes:" << endl;
-    for (int i = 0; i < estudiantes; ++i)
+// Generar matriz de asistencia de los estudiantes
+void generarMatrizAsistencia(int MatrizAsistencia[][2])
+{
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
     {
-        cout << "Estudiante " << matriculas[i] << ": ";
-        cout << "Dias asistidos: " << asistencias[i][0] << ", ";
-        cout << "Tareas entregadas: " << asistencias[i][1] << endl;
+        MatrizAsistencia[i][0] = rand() % 21; // Días asistidos durante el mes de forma aleatoria (máximo 20 días)
+        MatrizAsistencia[i][1] = rand() % 11; // Número de tareas entregadas de forma aleatoria (máximo 10)
     }
+}
 
-    // Calcular el número de matrícula del estudiante con el mayor número de tareas entregadas
-    int maxTareas = asistencias[0][1];
-    int matriculaMaxTareas = matriculas[0];
-    for (int i = 1; i < estudiantes; ++i)
+// Mostrar matriz de asistencia de los estudiantes
+void mostrarMatrizAsistencia(int MatrizAsistencia[][2], int ArregloMatriculasEstudiantes[])
+{
+    cout << "Matriz de asistencias:" << endl;
+
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
     {
-        if (asistencias[i][1] > maxTareas)
+        cout << "Estudiante " << ArregloMatriculasEstudiantes[i] << ": ";
+        cout << "Dias asistidos: " << MatrizAsistencia[i][0] << ", ";
+        cout << "Tareas entregadas: " << MatrizAsistencia[i][1] << endl;
+    }
+}
+
+// Calcular el número de matrícula del estudiante con el mayor número de tareas entregadas
+void calcularEstudianteMayorTareas(int MatrizAsistencia[][2], int ArregloMatriculasEstudiantes[])
+{
+    int mayorTareas = 0;
+
+    // Encontrar el mayor número de tareas entregadas
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
+    {
+        if (MatrizAsistencia[i][1] > mayorTareas)
         {
-            maxTareas = asistencias[i][1];
-            matriculaMaxTareas = matriculas[i];
+            mayorTareas = MatrizAsistencia[i][1];
         }
     }
 
-    // Mostrar el número de matrícula del estudiante con el mayor número de tareas entregadas
-    cout << "El estudiante con el mayor numero de tareas entregadas es: " << matriculaMaxTareas << endl;
-
-    // Calcular el porcentaje de asistencia promedio entre todos los estudiantes
-    int totalDias = 0;
-    for (int i = 0; i < estudiantes; ++i)
+    // Mostrar los estudiantes con el mayor número de tareas entregadas
+    cout << "Estudiantes con mayor numero de tareas entregadas (" << mayorTareas << ") son: ";
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
     {
-        totalDias += asistencias[i][0];
-    }
-    float promedioAsistencia = (float)totalDias / estudiantes;
-
-    // Mostrar el porcentaje de asistencia promedio entre todos los estudiantes
-    cout << "El porcentaje de asistencia promedio entre todos los estudiantes es: " << promedioAsistencia << "%" <<
-        endl;
-
-    // Listar los números de matrícula en orden descendente según la cantidad de días asistidos
-    for (int i = 0; i < estudiantes - 1; ++i)
-    {
-        for (int j = i + 1; j < estudiantes; ++j)
+        if (MatrizAsistencia[i][1] == mayorTareas)
         {
-            if (asistencias[i][0] < asistencias[j][0])
+            cout << ArregloMatriculasEstudiantes[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+// Determinar el porcentaje de asistencia promedio entre todos los estudiantes
+void calcularPorcentajeAsistenciaPromedio(int MatrizAsistencia[][2])
+{
+    int totalDiasAsistidos = 0;
+
+    for (int i = 0; i < CANT_ESTUDIANTES; i++)
+    {
+        totalDiasAsistidos += MatrizAsistencia[i][0];
+    }
+
+    double promedioAsistencia = (totalDiasAsistidos / (CANT_ESTUDIANTES * 20.0)) * 100;
+
+    cout << "Porcentaje de asistencia promedio: " << promedioAsistencia << "%" << endl;
+}
+
+// Listar los números de matrícula en orden descendente según la cantidad de días asistidos
+void listarMatriculasOrdenDescendente(int MatrizAsistencia[][2], int ArregloMatriculasEstudiantes[])
+{
+    cout << "Matriculas en orden descendente segun la cantidad de dias asistidos:" << endl;
+
+    for (int i = 0; i < CANT_ESTUDIANTES - 1; i++)
+    {
+        for (int j = i + 1; j < CANT_ESTUDIANTES; j++)
+        {
+            if (MatrizAsistencia[i][0] < MatrizAsistencia[j][0])
             {
-                swap(asistencias[i], asistencias[j]);
-                swap(matriculas[i], matriculas[j]);
+                swap(MatrizAsistencia[i], MatrizAsistencia[j]);
+                swap(ArregloMatriculasEstudiantes[i], ArregloMatriculasEstudiantes[j]);
             }
         }
     }
+    mostrarMatrizAsistencia(MatrizAsistencia, ArregloMatriculasEstudiantes);
+}
 
-    // Mostrar los números de matrícula en orden descendente según la cantidad de días asistidos
-    cout << "Numeros de matricula en orden descendente segun la cantidad de dias asistidos:" << endl;
-    for (int i = 0; i < estudiantes; ++i)
-    {
-        cout << matriculas[i] << " ";
-    }
+void problema1()
+{
+    srand(time(0));
 
-    // Liberar memoria
-    delete[] matriculas;
-    for (int i = 0; i < estudiantes; ++i)
-    {
-        delete[] asistencias[i];
-    }
-    delete[] asistencias;
+    int ArregloMatriculasEstudiantes[CANT_ESTUDIANTES]; // Arreglo de matrículas
+    int MatrizAsistencia[CANT_ESTUDIANTES][2]; // Matriz de asistencia
+
+    generarMatriculas(ArregloMatriculasEstudiantes);
+    mostrarArregloMatriculas(ArregloMatriculasEstudiantes);
+
+    generarMatrizAsistencia(MatrizAsistencia);
+    mostrarMatrizAsistencia(MatrizAsistencia, ArregloMatriculasEstudiantes);
+
+    calcularEstudianteMayorTareas(MatrizAsistencia, ArregloMatriculasEstudiantes);
+    calcularPorcentajeAsistenciaPromedio(MatrizAsistencia);
+    listarMatriculasOrdenDescendente(MatrizAsistencia, ArregloMatriculasEstudiantes);
 }

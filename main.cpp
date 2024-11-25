@@ -20,7 +20,7 @@ void llenarArreglo(int arr[], int size) {
     }
 }
 
-void mostrarArreglo(int arr[], int size) {
+void mostrarArregloMatriculas(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
@@ -62,7 +62,7 @@ int main() {
                 cout << "Arreglo llenado con valores aleatorios." << endl;
                 break;
             case 2:
-                mostrarArreglo(arreglo, size);
+                mostrarArregloMatriculas(arreglo, size);
                 break;
             case 3:
                 int valor;

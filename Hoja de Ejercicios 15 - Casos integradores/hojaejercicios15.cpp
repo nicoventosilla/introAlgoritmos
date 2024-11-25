@@ -5,6 +5,7 @@
 #include "hojaejercicios15.h"
 #include "problema1.h"
 #include "problema2.h"
+#include "problema3.h"
 
 #include <iostream>
 using namespace std;
@@ -13,6 +14,7 @@ void mostrarMenu()
 {
     cout << "1. Problema 1" << endl;
     cout << "2. Problema 2" << endl;
+    cout << "3. Problema 3" << endl;
 }
 
 int main()
@@ -31,6 +33,9 @@ int main()
         break;
     case 2:
         problema2();
+        break;
+    case 3:
+        problema3();
         break;
     default:
         cout << "Opcion no valida" << endl;
